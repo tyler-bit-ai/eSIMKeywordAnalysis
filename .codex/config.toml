@@ -1,0 +1,9 @@
+[mcp_servers."shrimp-task-manager"]
+command = "C:\\Program Files\\nodejs\\node.exe"
+args = ["C:\\Codex/mcp-shrimp-task-manager\\dist\\index.js"]
+transport = "stdio"
+
+[mcp_servers."shrimp-task-manager".env]
+DATA_DIR = "C:\\Codex\\KeywordAnalysis\\.shrimp-data"
+TEMPLATES_USE = "en"
+ENABLE_GUI = "false"

@@ -1,0 +1,14 @@
+default_profile:
+  locale_gl: us
+  language_hl: en
+  google_domain: www.google.com
+  login_state: logged_out
+  device_class: desktop
+  user_agent_mode: default_desktop
+  viewport:
+    width: 1440
+    height: 900
+  request_spacing_seconds: 4
+  retry_limit: 2
+  collect_serp_context: false
+

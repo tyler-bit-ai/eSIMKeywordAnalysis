@@ -1,0 +1,24 @@
+[project]
+name = "keyword-analysis"
+version = "0.1.0"
+description = "Google-only public-signal workflow for researching U.S. eSIM search behavior."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2",
+  "playwright>=1.52",
+  "pytrends>=4.9.2",
+  "pyyaml>=6.0.2",
+  "requests>=2.32",
+  "streamlit>=1.43",
+]
+
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
