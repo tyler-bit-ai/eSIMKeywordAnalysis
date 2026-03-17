@@ -143,11 +143,23 @@ class Storage:
         return [str(row["raw_text"]) for row in rows]
 
     def export_run_to_csv(self, run_id: str, output_path: Path) -> None:
+        self.export_runs_to_csv([run_id], output_path)
+
+    def export_runs_to_csv(self, run_ids: Iterable[str], output_path: Path) -> None:
+        run_id_list = [run_id for run_id in run_ids]
+        if not run_id_list:
+            return
+
         output_path.parent.mkdir(parents=True, exist_ok=True)
+        placeholders = ", ".join("?" for _ in run_id_list)
         with self._connect() as connection:
             rows = connection.execute(
-                "SELECT * FROM observations WHERE run_id = ? ORDER BY signal_type, rank_position",
-                (run_id,),
+                (
+                    "SELECT * FROM observations "
+                    f"WHERE run_id IN ({placeholders}) "
+                    "ORDER BY signal_type, rank_position"
+                ),
+                run_id_list,
             ).fetchall()
 
         if not rows:

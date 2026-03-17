@@ -24,6 +24,13 @@ Python workflow for estimating how U.S. users search Google for eSIM topics usin
 3. Normalize discovered keywords and cluster intents.
 4. Score keywords and monitor changes over time.
 
+## Collection Notes
+
+- Seed exports now aggregate observations from every collector run triggered for the seed, rather than only the autocomplete run.
+- Autocomplete collection can fan out into modifier, alphabet, and numeric expansions using `config/collection_profiles.yaml` under `autocomplete_expansion`.
+- `related_search` remains an optional, best-effort Google SERP signal. Selector misses or Google anti-bot responses are recorded as failed runs instead of leaving a `started` status behind.
+- Deterministic pytest coverage is available for export aggregation, query expansion, config defaults, and related-search failure handling.
+
 ## Dashboard
 
 - Install dependencies from `pyproject.toml`.
