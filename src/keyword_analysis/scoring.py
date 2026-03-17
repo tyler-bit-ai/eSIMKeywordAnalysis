@@ -16,6 +16,12 @@ SIGNAL_WEIGHTS: dict[str, int] = {
 }
 
 COMMERCIAL_MARKERS = ("best", "cheap", "price", "plan", "prepaid", "unlimited")
+HIGH_PRIORITY_THRESHOLD = 18
+MEDIUM_PRIORITY_THRESHOLD = 10
+CORE_STABLE_SIGNAL_COUNT = 3
+CORE_STABLE_SCORE_THRESHOLD = 18
+RISING_SCORE_THRESHOLD = 10
+RISING_SIGNAL = "trends_related"
 
 
 def load_observation_frame(
@@ -79,9 +85,9 @@ def score_keywords(frame: pd.DataFrame) -> pd.DataFrame:
 
 
 def classify_keyword_bucket(row: pd.Series) -> str:
-    if row["signal_count"] >= 3 and row["priority_score"] >= 18:
+    if row["signal_count"] >= CORE_STABLE_SIGNAL_COUNT and row["priority_score"] >= CORE_STABLE_SCORE_THRESHOLD:
         return "core_stable"
-    if "trends_related" in str(row["evidence_signals"]) and row["priority_score"] >= 10:
+    if RISING_SIGNAL in str(row["evidence_signals"]) and row["priority_score"] >= RISING_SCORE_THRESHOLD:
         return "rising"
     return "niche_long_tail"
 

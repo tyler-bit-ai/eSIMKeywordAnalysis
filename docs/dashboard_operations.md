@@ -30,6 +30,23 @@
 - Default report directory:
   - `outputs/reports_korea_focus`
 - If report files live elsewhere, change the report directory in the sidebar.
+- Default database path for refresh:
+  - `outputs/keyword_analysis.sqlite3`
+
+## In-Dashboard Actions
+
+- `Refresh Market Signals`
+  - Collects the current Korea-focused seed set again
+  - Rebuilds normalized keywords and intent assignments
+  - Re-exports `ranked_keywords.csv`, `cluster_summary.csv`, `korea_marketing_targets.csv`, and `report_summary.md`
+- `Help`
+  - Opens an in-app explanation of score rules, bucket logic, and the marketing meaning of each dashboard section
+
+## Help Synchronization Rule
+
+- Dashboard help content is not treated as a freeform static document.
+- Score explanations and section descriptions must be generated from the code metadata under `src/keyword_analysis/`.
+- When scoring logic or dashboard sections change, the matching tests must also pass so help text cannot silently drift from the live application.
 
 ## Troubleshooting
 

@@ -1,35 +1,36 @@
 # Keyword Report
 
 ## Top Keywords
-- `korea esim` | score=50.0 | bucket=rising | evidence=autocomplete,trends_related
+- `korea esim` | score=62.38 | bucket=rising | evidence=autocomplete,trends_related
+- `korea esim with phone number` | score=47.33 | bucket=niche_long_tail | evidence=autocomplete
+- `best esim for korea` | score=41.25 | bucket=rising | evidence=autocomplete,trends_related
+- `travel esim` | score=28.0 | bucket=rising | evidence=autocomplete,trends_related
+- `korea esim reddit` | score=28.0 | bucket=niche_long_tail | evidence=autocomplete
+- `korea esim card` | score=27.67 | bucket=niche_long_tail | evidence=autocomplete
+- `esim japan` | score=26.67 | bucket=rising | evidence=autocomplete,trends_related
 - `korea esim unlimited data` | score=26.0 | bucket=niche_long_tail | evidence=autocomplete
-- `best esim for korea` | score=25.5 | bucket=rising | evidence=trends_related
-- `korea esim with phone number` | score=25.5 | bucket=niche_long_tail | evidence=autocomplete
-- `best esim for south korea` | score=24.0 | bucket=rising | evidence=trends_related
-- `korea esim card` | score=20.5 | bucket=niche_long_tail | evidence=autocomplete
-- `korea esim reddit` | score=20.5 | bucket=niche_long_tail | evidence=autocomplete
-- `saily esim` | score=20.0 | bucket=rising | evidence=trends_related
-- `korea and japan esim` | score=19.0 | bucket=niche_long_tail | evidence=autocomplete
-- `korea esim tourist` | score=19.0 | bucket=niche_long_tail | evidence=autocomplete
+- `japan esim` | score=23.33 | bucket=rising | evidence=trends_related
+- `korea esim with phone number reddit` | score=23.0 | bucket=niche_long_tail | evidence=autocomplete
 
 ## Cluster Summary
-- family=korea | bucket=rising | keywords=2 | avg_score=37.75
-- family=south korea | bucket=rising | keywords=1 | avg_score=24.0
-- family=korea | bucket=niche_long_tail | keywords=21 | avg_score=16.74
-- family=generic_esim | bucket=rising | keywords=4 | avg_score=15.5
-- family=south korea | bucket=niche_long_tail | keywords=1 | avg_score=11.0
+- family=korea | bucket=rising | keywords=3 | avg_score=37.88
+- family=korea | bucket=niche_long_tail | keywords=45 | avg_score=17.97
+- family=generic_esim | bucket=rising | keywords=22 | avg_score=17.39
+- family=south korea | bucket=rising | keywords=1 | avg_score=17.0
+- family=south korea | bucket=niche_long_tail | keywords=7 | avg_score=16.71
+- family=generic_esim | bucket=niche_long_tail | keywords=38 | avg_score=11.32
 
 ## Korea Marketing Targets
-- `korea esim` | priority=high | score=50.0 | modifier=root | seeds=esim for korea,korea esim,south korea esim
+- `korea esim` | priority=high | score=62.38 | modifier=root | seeds=esim,esim for korea,korea esim,korea travel esim,south korea esim
+- `korea esim with phone number` | priority=high | score=47.33 | modifier=with phone number | seeds=korea esim,korea esim with phone number,korea travel esim,south korea esim
+- `best esim for korea` | priority=high | score=41.25 | modifier=best | seeds=best esim for korea,esim for korea,korea esim
+- `korea esim reddit` | priority=high | score=28.0 | modifier=reddit | seeds=korea esim,korea travel esim,south korea esim
+- `korea esim card` | priority=high | score=27.67 | modifier=card | seeds=korea esim,korea travel esim,south korea esim
 - `korea esim unlimited data` | priority=high | score=26.0 | modifier=unlimited data | seeds=korea esim,south korea esim
-- `best esim for korea` | priority=high | score=25.5 | modifier=best | seeds=korea esim
-- `korea esim with phone number` | priority=high | score=25.5 | modifier=with phone number | seeds=korea esim,south korea esim
-- `best esim for south korea` | priority=high | score=24.0 | modifier=best | seeds=korea esim
-- `korea esim card` | priority=high | score=20.5 | modifier=card | seeds=korea esim,south korea esim
-- `korea esim reddit` | priority=high | score=20.5 | modifier=reddit | seeds=korea esim,south korea esim
-- `saily esim` | priority=high | score=20.0 | modifier=variant | seeds=korea esim
-- `korea and japan esim` | priority=high | score=19.0 | modifier=variant | seeds=esim for korea
-- `korea esim tourist` | priority=high | score=19.0 | modifier=tourist | seeds=korea esim
+- `japan esim` | priority=high | score=23.33 | modifier=variant | seeds=korea esim
+- `korea esim with phone number reddit` | priority=high | score=23.0 | modifier=with phone number reddit | seeds=korea esim with phone number
+- `unlimited data esim korea` | priority=high | score=23.0 | modifier=variant | seeds=unlimited data esim korea
+- `best esim for korea reddit` | priority=high | score=22.0 | modifier=reddit | seeds=best esim for korea
 
 ## Interpretation Notes
 - Scores are signal-based priorities, not true search volume.

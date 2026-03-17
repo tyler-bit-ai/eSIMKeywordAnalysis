@@ -135,6 +135,13 @@ class Storage:
                 rows,
             )
 
+    def list_distinct_raw_keywords(self) -> list[str]:
+        with self._connect() as connection:
+            rows = connection.execute(
+                "SELECT DISTINCT raw_text FROM observations WHERE raw_text != '' ORDER BY raw_text"
+            ).fetchall()
+        return [str(row["raw_text"]) for row in rows]
+
     def export_run_to_csv(self, run_id: str, output_path: Path) -> None:
         output_path.parent.mkdir(parents=True, exist_ok=True)
         with self._connect() as connection:
@@ -197,3 +204,16 @@ class Storage:
                 """,
                 rows,
             )
+
+    def replace_intent_assignments(self, assignments: Iterable[IntentAssignment]) -> None:
+        rows = [asdict(assignment) for assignment in assignments]
+        with self._connect() as connection:
+            connection.execute("DELETE FROM intent_assignments")
+            if rows:
+                connection.executemany(
+                    """
+                    INSERT INTO intent_assignments (canonical_keyword, cluster, reason)
+                    VALUES (:canonical_keyword, :cluster, :reason)
+                    """,
+                    rows,
+                )

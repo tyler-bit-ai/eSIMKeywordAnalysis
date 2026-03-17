@@ -12,10 +12,13 @@ PROJECT_SRC = Path(__file__).resolve().parents[1]
 if str(PROJECT_SRC) not in sys.path:
     sys.path.insert(0, str(PROJECT_SRC))
 
+from keyword_analysis.dashboard_help import build_help_payload, get_section_spec
 from keyword_analysis.dashboard_data import DashboardDataset, load_dashboard_dataset
+from keyword_analysis.pipeline import DEFAULT_DATABASE_PATH, PipelineError, refresh_korea_dashboard_dataset
 
 
 DEFAULT_REPORT_DIR = Path("outputs/reports_korea_focus")
+DEFAULT_COLLECTION_EXPORT_DIR = Path("outputs/reports")
 
 
 def main() -> None:
@@ -24,12 +27,26 @@ def main() -> None:
         layout="wide",
         initial_sidebar_state="expanded",
     )
-    st.title("Korea eSIM Keyword Dashboard")
-    st.caption("Compare Korea-focused Google keyword targets, modifiers, seed lineage, and snapshot changes.")
+
+    title_col, action_col = st.columns([4, 2])
+    with title_col:
+        st.title("Korea eSIM Keyword Dashboard")
+        st.caption("Compare Korea-focused Google keyword targets, modifiers, seed lineage, and snapshot changes.")
+    with action_col:
+        help_clicked = st.button("Help", use_container_width=True)
+        refresh_clicked = st.button("Refresh Market Signals", type="primary", use_container_width=True)
 
     report_dir = st.sidebar.text_input("Report directory", str(DEFAULT_REPORT_DIR))
+    database_path = st.sidebar.text_input("Database path", str(DEFAULT_DATABASE_PATH))
     previous_snapshot = st.sidebar.text_input("Previous snapshot CSV", "")
     current_snapshot = st.sidebar.text_input("Current snapshot CSV", "")
+
+    if help_clicked:
+        render_help_dialog()
+
+    if refresh_clicked:
+        run_refresh_pipeline(Path(database_path), Path(report_dir), DEFAULT_COLLECTION_EXPORT_DIR)
+        st.rerun()
 
     dataset = load_dashboard_dataset(
         report_dir=Path(report_dir),
@@ -52,6 +69,70 @@ def main() -> None:
     with right_col:
         render_seed_lineage(dataset)
         render_snapshot_changes(dataset)
+
+
+@st.dialog("Dashboard Help", width="large")
+def render_help_dialog() -> None:
+    payload = build_help_payload()
+    score_rule = payload["score_rule"]
+    sections = payload["sections"]
+
+    st.subheader(score_rule.title)
+    st.write(score_rule.summary)
+    st.markdown("**Score formula**")
+    for step in score_rule.formula_steps:
+        st.write(f"- {step}")
+
+    st.markdown("**Signal weights**")
+    signal_frame = pd.DataFrame(
+        [{"signal": signal, "weight": weight} for signal, weight in score_rule.signal_weights.items()]
+    )
+    st.dataframe(signal_frame, use_container_width=True, hide_index=True)
+
+    st.markdown("**Marketing priority**")
+    for rule in score_rule.marketing_priority_rules:
+        st.write(f"- {rule}")
+
+    st.markdown("**Keyword buckets**")
+    for rule in score_rule.bucket_rules:
+        st.write(f"- {rule}")
+
+    st.subheader("Section Guide")
+    for section in sections:
+        with st.expander(section.title, expanded=False):
+            st.write(f"**What it means:** {section.business_meaning}")
+            st.write(f"**How to use it:** {section.how_to_use}")
+            st.write(f"**What drives it:** {section.scoring_note}")
+
+
+def run_refresh_pipeline(database_path: Path, report_dir: Path, collection_export_dir: Path) -> None:
+    try:
+        with st.status("Refreshing current market dataset...", expanded=True) as status:
+            st.write("Collecting fresh Korea-focused Google signals.")
+            st.write("Rebuilding normalized keywords and intent assignments.")
+            st.write("Exporting refreshed dashboard reports.")
+            artifacts = refresh_korea_dashboard_dataset(
+                database_path=database_path,
+                report_dir=report_dir,
+                collection_export_dir=collection_export_dir,
+            )
+            status.update(label="Refresh completed", state="complete")
+        st.success(
+            "Dataset refresh completed. "
+            f"Normalized keywords: {artifacts.normalized_keyword_count}, "
+            f"intent assignments: {artifacts.intent_assignment_count}"
+        )
+        st.caption(
+            f"Updated reports: {artifacts.ranked_keywords}, {artifacts.cluster_summary}, "
+            f"{artifacts.korea_marketing_targets}"
+        )
+        if artifacts.failure_log_path.exists():
+            st.warning(f"Collector warnings were logged to {artifacts.failure_log_path}.")
+    except PipelineError as error:
+        st.error(f"Dataset refresh failed: {error}")
+        failure_log = collection_export_dir / "collection_failures.log"
+        if failure_log.exists():
+            st.caption(f"Check collector failures: {failure_log}")
 
 
 def apply_filters(targets: pd.DataFrame) -> pd.DataFrame:
@@ -90,6 +171,7 @@ def apply_filters(targets: pd.DataFrame) -> pd.DataFrame:
 
 
 def render_kpis(dataset: DashboardDataset, filtered_targets: pd.DataFrame) -> None:
+    st.subheader(get_section_spec("kpi").title)
     kpi_source = dataset.kpi_frame.iloc[0].to_dict() if not dataset.kpi_frame.empty else {}
     new_keywords = len(dataset.snapshot_changes.get("new_keywords", pd.DataFrame()))
 
@@ -102,7 +184,7 @@ def render_kpis(dataset: DashboardDataset, filtered_targets: pd.DataFrame) -> No
 
 
 def render_main_table(filtered_targets: pd.DataFrame) -> None:
-    st.subheader("Korea Marketing Target Comparison")
+    st.subheader(get_section_spec("target_comparison").title)
     if filtered_targets.empty:
         st.info("No targets available for the current filter set.")
         return
@@ -125,7 +207,7 @@ def render_main_table(filtered_targets: pd.DataFrame) -> None:
 
 
 def render_action_views(filtered_targets: pd.DataFrame) -> None:
-    st.subheader("Action Views")
+    st.subheader(get_section_spec("action_views").title)
     tabs = st.tabs(["Target Now", "Watch", "Review Manually"])
     target_now = filtered_targets[
         (filtered_targets["marketing_priority"] == "high")
@@ -159,7 +241,7 @@ def render_action_views(filtered_targets: pd.DataFrame) -> None:
 
 
 def render_export_candidates(filtered_targets: pd.DataFrame) -> None:
-    st.subheader("Marketing Exports")
+    st.subheader(get_section_spec("marketing_exports").title)
     if filtered_targets.empty:
         st.info("No export candidates available.")
         return
@@ -195,7 +277,7 @@ def render_export_candidates(filtered_targets: pd.DataFrame) -> None:
 
 
 def render_modifier_summary(dataset: DashboardDataset, filtered_targets: pd.DataFrame) -> None:
-    st.subheader("Modifier Comparison")
+    st.subheader(get_section_spec("modifier_comparison").title)
     if filtered_targets.empty:
         st.info("No modifier summary available.")
         return
@@ -214,7 +296,7 @@ def render_modifier_summary(dataset: DashboardDataset, filtered_targets: pd.Data
 
 
 def render_signal_summary(dataset: DashboardDataset) -> None:
-    st.subheader("Signal Badge Summary")
+    st.subheader(get_section_spec("signal_summary").title)
     if dataset.signal_summary.empty:
         st.info("No signal summary available.")
         return
@@ -222,7 +304,7 @@ def render_signal_summary(dataset: DashboardDataset) -> None:
 
 
 def render_seed_lineage(dataset: DashboardDataset) -> None:
-    st.subheader("Root Seed Lineage")
+    st.subheader(get_section_spec("seed_lineage").title)
     if dataset.seed_lineage.empty:
         st.info("No seed lineage summary available.")
         return
@@ -230,7 +312,7 @@ def render_seed_lineage(dataset: DashboardDataset) -> None:
 
 
 def render_snapshot_changes(dataset: DashboardDataset) -> None:
-    st.subheader("Snapshot Delta")
+    st.subheader(get_section_spec("snapshot_delta").title)
     tabs = st.tabs(["New", "Disappeared", "Rank Changes", "Bucket Changes"])
     names = ["new_keywords", "disappeared_keywords", "rank_changes", "bucket_changes"]
     for tab, name in zip(tabs, names, strict=True):

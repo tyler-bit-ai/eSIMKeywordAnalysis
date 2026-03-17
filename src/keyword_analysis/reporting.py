@@ -6,7 +6,12 @@ from pathlib import Path
 
 import pandas as pd
 
-from keyword_analysis.scoring import load_observation_frame, score_keywords
+from keyword_analysis.scoring import (
+    HIGH_PRIORITY_THRESHOLD,
+    MEDIUM_PRIORITY_THRESHOLD,
+    load_observation_frame,
+    score_keywords,
+)
 
 
 def extract_korea_follow_on_modifier(keyword: str) -> str:
@@ -48,7 +53,7 @@ def build_korea_marketing_targets(frame: pd.DataFrame, scored_keywords: pd.DataF
 
     targets = scored_keywords.merge(origins, how="inner", on="canonical_keyword")
     targets["marketing_priority"] = targets["priority_score"].apply(
-        lambda score: "high" if score >= 18 else "medium" if score >= 10 else "test"
+        lambda score: "high" if score >= HIGH_PRIORITY_THRESHOLD else "medium" if score >= MEDIUM_PRIORITY_THRESHOLD else "test"
     )
     targets["follow_on_modifier"] = targets["canonical_keyword"].apply(extract_korea_follow_on_modifier)
     targets["target_reason"] = (
