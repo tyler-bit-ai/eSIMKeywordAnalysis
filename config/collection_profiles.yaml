@@ -11,4 +11,20 @@ default_profile:
   request_spacing_seconds: 4
   retry_limit: 2
   collect_serp_context: false
-
+  collect_related_searches: true
+  autocomplete_expansion:
+    enabled: true
+    max_expansions: 16
+    include_letters: true
+    include_numbers: true
+    include_modifiers: true
+    letters: abcdefghijklmnopqrstuvwxyz
+    numbers: 0123456789
+    modifiers:
+      - best
+      - buy
+      - review
+      - reddit
+      - unlimited
+      - for travel
+      - with phone number
