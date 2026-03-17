@@ -1,7 +1,7 @@
 keyword_family,keyword_bucket,keyword_count,avg_priority_score
-korea,rising,3,51.60333333333333
-korea,niche_long_tail,45,25.566666666666666
-south korea,niche_long_tail,7,21.857142857142858
-generic_esim,rising,22,17.386363636363637
+korea,rising,3,99.82666666666667
+korea,niche_long_tail,233,28.92167381974249
+south korea,niche_long_tail,77,24.14857142857143
+generic_esim,rising,22,19.729545454545455
+generic_esim,niche_long_tail,101,19.026336633663366
 south korea,rising,1,17.0
-generic_esim,niche_long_tail,38,11.473684210526315

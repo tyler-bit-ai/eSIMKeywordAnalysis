@@ -1,98 +1,419 @@
 canonical_keyword,keyword_family,destination,signal_count,observation_count,weighted_signal_score,avg_rank_bonus,commercial_intent,evidence_signals,evidence_notes,priority_score,keyword_bucket,confidence_note
-korea esim,korea,korea,2,13,63,8.307692307692308,0,"autocomplete,trends_related","requests-suggest-endpoint-fallback,top",92.31,rising,"signals=autocomplete,trends_related;count=13;commercial=0"
-korea esim with phone number,korea,korea,1,12,60,7.333333333333333,0,autocomplete,requests-suggest-endpoint-fallback,83.33,niche_long_tail,signals=autocomplete;count=12;commercial=0
-best esim for korea,korea,korea,2,6,26,9.5,1,"autocomplete,trends_related","requests-suggest-endpoint-fallback,rising,top",52.5,rising,"signals=autocomplete,trends_related;count=6;commercial=1"
-korea esim reddit,korea,korea,1,6,30,6.0,0,autocomplete,requests-suggest-endpoint-fallback,46.0,niche_long_tail,signals=autocomplete;count=6;commercial=0
-korea esim card,korea,korea,1,6,30,5.666666666666667,0,autocomplete,requests-suggest-endpoint-fallback,45.67,niche_long_tail,signals=autocomplete;count=6;commercial=0
-korea esim unlimited data,korea,korea,1,4,20,7.0,1,autocomplete,requests-suggest-endpoint-fallback,38.0,niche_long_tail,signals=autocomplete;count=4;commercial=1
-korea esim with phone number reddit,korea,korea,1,4,20,7.0,0,autocomplete,requests-suggest-endpoint-fallback,35.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
-korea trip esim,korea,korea,1,4,20,3.5,0,autocomplete,requests-suggest-endpoint-fallback,31.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
-korea esim with number,korea,korea,1,4,20,2.0,0,autocomplete,requests-suggest-endpoint-fallback,30.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
-unlimited data esim korea,korea,korea,1,2,10,10.0,1,autocomplete,requests-suggest-endpoint-fallback,29.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea esim,korea,korea,2,29,139,8.379310344827585,0,"autocomplete,trends_related","letter:f|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback,top",184.38,rising,"signals=autocomplete,trends_related;count=29;commercial=0"
+korea esim with phone number,korea,korea,1,26,130,6.961538461538462,0,autocomplete,"modifier:with phone number|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",166.96,niche_long_tail,signals=autocomplete;count=26;commercial=0
+korea esim reddit,korea,korea,1,17,85,5.235294117647059,0,autocomplete,"modifier:reddit|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",111.24,niche_long_tail,signals=autocomplete;count=17;commercial=0
+best esim for korea,korea,korea,2,14,60,9.428571428571429,1,"autocomplete,trends_related","letter:f|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,rising,seed|requests-suggest-endpoint-fallback,top",94.43,rising,"signals=autocomplete,trends_related;count=14;commercial=1"
+korea esim with phone number reddit,korea,korea,1,12,60,6.0,0,autocomplete,"modifier:reddit|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",82.0,niche_long_tail,signals=autocomplete;count=12;commercial=0
+korea esim card,korea,korea,1,11,55,5.454545454545454,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",75.45,niche_long_tail,signals=autocomplete;count=11;commercial=0
+korea esim unlimited data,korea,korea,1,10,50,6.6,1,autocomplete,"modifier:unlimited|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",73.6,niche_long_tail,signals=autocomplete;count=10;commercial=1
+korea esim with phone number klook,korea,korea,1,9,45,6.666666666666667,0,autocomplete,"modifier:with phone number|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",64.67,niche_long_tail,signals=autocomplete;count=9;commercial=0
+does ee provide esim,generic_esim,,1,9,45,4.0,0,autocomplete,"letter:a|requests-suggest-endpoint-fallback,letter:e|requests-suggest-endpoint-fallback,modifier:unlimited|requests-suggest-endpoint-fallback",62.0,niche_long_tail,signals=autocomplete;count=9;commercial=0
+korea esim for travel,korea,korea,1,8,40,9.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,61.0,niche_long_tail,signals=autocomplete;count=8;commercial=0
+korea esim for tourist,korea,korea,1,8,40,5.5,0,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",57.5,niche_long_tail,signals=autocomplete;count=8;commercial=0
+best esim for korea travel,korea,korea,1,7,35,5.571428571428571,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",54.57,niche_long_tail,signals=autocomplete;count=7;commercial=1
+korea esim unlimited data reddit,korea,korea,1,7,35,5.285714285714286,1,autocomplete,"modifier:reddit|requests-suggest-endpoint-fallback,modifier:unlimited|requests-suggest-endpoint-fallback",54.29,niche_long_tail,signals=autocomplete;count=7;commercial=1
+korea esim with number,korea,korea,1,8,40,2.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",54.0,niche_long_tail,signals=autocomplete;count=8;commercial=0
+korea esim best,korea,korea,1,6,30,9.333333333333334,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,52.33,niche_long_tail,signals=autocomplete;count=6;commercial=1
+korea esim unlimited,korea,korea,1,6,30,7.333333333333333,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,50.33,niche_long_tail,signals=autocomplete;count=6;commercial=1
+esim us number,generic_esim,,1,7,35,4.0,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",50.0,niche_long_tail,signals=autocomplete;count=7;commercial=0
+korea esim google pixel,korea,korea,1,6,30,9.666666666666666,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,49.67,niche_long_tail,signals=autocomplete;count=6;commercial=0
+korea trip esim,korea,korea,1,7,35,3.2857142857142856,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",49.29,niche_long_tail,signals=autocomplete;count=7;commercial=0
+korea esim buy,korea,korea,1,6,30,9.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,49.0,niche_long_tail,signals=autocomplete;count=6;commercial=0
+korea esim data,korea,korea,1,6,30,8.666666666666666,0,autocomplete,"letter:d|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",48.67,niche_long_tail,signals=autocomplete;count=6;commercial=0
+korea esim tourist reddit,korea,korea,1,7,35,2.4285714285714284,0,autocomplete,"modifier:reddit|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",48.43,niche_long_tail,signals=autocomplete;count=7;commercial=0
+korea esim holafly,korea,korea,1,6,30,8.333333333333334,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,48.33,niche_long_tail,signals=autocomplete;count=6;commercial=0
+korea esim review,korea,korea,1,6,30,8.333333333333334,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,48.33,niche_long_tail,signals=autocomplete;count=6;commercial=0
+best esim for korea with phone number,korea,korea,1,6,30,4.166666666666667,1,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",47.17,niche_long_tail,signals=autocomplete;count=6;commercial=1
+korea esim data only,korea,korea,1,6,30,6.333333333333333,0,autocomplete,"letter:d|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",46.33,niche_long_tail,signals=autocomplete;count=6;commercial=0
+best esim for korea reddit,korea,korea,1,5,25,8.6,1,autocomplete,"modifier:reddit|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",45.6,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for korea and japan,korea,korea,1,5,25,7.6,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",44.6,niche_long_tail,signals=autocomplete;count=5;commercial=1
+is esim available in nepal,generic_esim,,1,6,30,4.333333333333333,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,44.33,niche_long_tail,signals=autocomplete;count=6;commercial=0
+japan esim,generic_esim,,1,7,28,4.714285714285714,0,trends_related,"rising,top",43.71,rising,signals=trends_related;count=7;commercial=0
+korea and china esim,korea,korea,1,6,30,3.6666666666666665,0,autocomplete,"letter:c|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",43.67,niche_long_tail,signals=autocomplete;count=6;commercial=0
+does esim work internationally,generic_esim,,1,6,30,3.3333333333333335,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback",43.33,niche_long_tail,signals=autocomplete;count=6;commercial=0
+best korea esim with phone number,korea,korea,1,5,25,6.0,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",43.0,niche_long_tail,signals=autocomplete;count=5;commercial=1
+esim korea travel unlimited data,korea,korea,1,5,25,6.0,1,autocomplete,"modifier:for travel|requests-suggest-endpoint-fallback,modifier:unlimited|requests-suggest-endpoint-fallback",43.0,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for korea and japan reddit,korea,korea,1,5,25,5.4,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",42.4,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for korea and china,korea,korea,1,5,25,5.2,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",42.2,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for south korea with phone number,south korea,south korea,1,5,25,5.0,1,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,42.0,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for south korea travel,south korea,south korea,1,5,25,4.8,1,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,41.8,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for south korea unlimited data,south korea,south korea,1,5,25,4.8,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,41.8,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for korea travel reddit,korea,korea,1,5,25,3.2,1,autocomplete,"modifier:for travel|requests-suggest-endpoint-fallback,modifier:reddit|requests-suggest-endpoint-fallback",40.2,niche_long_tail,signals=autocomplete;count=5;commercial=1
+best esim for korea 2025,korea,korea,1,5,25,2.6,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",39.6,niche_long_tail,signals=autocomplete;count=5;commercial=1
+korea esim cheap,korea,korea,1,4,20,8.5,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,39.5,niche_long_tail,signals=autocomplete;count=4;commercial=1
+south korea best esim reddit,south korea,south korea,1,4,20,8.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,39.0,niche_long_tail,signals=autocomplete;count=4;commercial=1
+ee change to esim,generic_esim,,1,5,25,4.8,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,38.8,niche_long_tail,signals=autocomplete;count=5;commercial=0
+best esim for korea and taiwan,korea,korea,1,5,25,1.6,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",38.6,niche_long_tail,signals=autocomplete;count=5;commercial=1
+ee esim qr code,generic_esim,,1,5,25,4.6,0,autocomplete,"letter:d|requests-suggest-endpoint-fallback,letter:e|requests-suggest-endpoint-fallback",38.6,niche_long_tail,signals=autocomplete;count=5;commercial=0
+buy korea esim with phone number,korea,korea,1,5,25,4.2,0,autocomplete,"modifier:buy|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",38.2,niche_long_tail,signals=autocomplete;count=5;commercial=0
+esim korea exchange student,korea,korea,1,4,20,10.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,38.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea unlimited reddit,korea,korea,1,4,20,7.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,38.0,niche_long_tail,signals=autocomplete;count=4;commercial=1
+korea esim airalo,korea,korea,1,4,20,10.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,38.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim with korean phone number,korea,korea,1,5,25,4.0,0,autocomplete,"modifier:with phone number|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",38.0,niche_long_tail,signals=autocomplete;count=5;commercial=0
+esim korea en japan,korea,korea,1,4,20,9.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,37.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea reddit,korea,korea,1,4,20,9.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,37.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea unlimited 5g,korea,korea,1,4,20,6.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,37.0,niche_long_tail,signals=autocomplete;count=4;commercial=1
+korea and japan esim,korea,korea,1,4,20,9.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",37.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim airport,korea,korea,1,4,20,9.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,37.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim tourist,korea,korea,1,4,20,9.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",37.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim free,korea,korea,1,4,20,8.5,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,36.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+south korea best esim,south korea,south korea,1,4,20,5.5,1,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:best|requests-suggest-endpoint-fallback",36.5,niche_long_tail,signals=autocomplete;count=4;commercial=1
+esim korea how does it work,korea,korea,1,4,20,8.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,36.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim app,korea,korea,1,4,20,8.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,36.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim with local phone number,korea,korea,1,5,25,2.0,0,autocomplete,"modifier:with phone number|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",36.0,niche_long_tail,signals=autocomplete;count=5;commercial=0
+esim korea empfehlung,korea,korea,1,4,20,7.5,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,35.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim cheapest,korea,korea,1,4,20,4.5,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,35.5,niche_long_tail,signals=autocomplete;count=4;commercial=1
+korea esim comparison,korea,korea,1,4,20,7.5,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,35.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim cost,korea,korea,1,4,20,7.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,35.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim for iphone,korea,korea,1,4,20,7.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,35.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea reddit esim,korea,korea,1,4,20,7.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",35.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+unlimited data esim korea,korea,korea,1,3,15,10.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",35.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+esim korea how to use,korea,korea,1,4,20,6.5,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,34.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+does esim work in china,generic_esim,,1,4,20,6.25,0,autocomplete,"letter:b|requests-suggest-endpoint-fallback,letter:g|requests-suggest-endpoint-fallback,modifier:review|requests-suggest-endpoint-fallback",34.25,niche_long_tail,signals=autocomplete;count=4;commercial=0
+koodo esim qr code,generic_esim,,1,4,20,6.25,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:buy|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",34.25,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea and japan reddit esim,korea,korea,1,4,20,6.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",34.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim red,korea,korea,1,4,20,6.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",34.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+south korea reddit esim,south korea,south korea,1,4,20,6.0,0,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:reddit|requests-suggest-endpoint-fallback",34.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+unlimited data esim korea reddit,korea,korea,1,3,15,9.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",34.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+best esim for south korea from uk,south korea,south korea,1,3,15,8.666666666666666,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,33.67,niche_long_tail,signals=autocomplete;count=3;commercial=1
+does south korea have esim,south korea,south korea,1,4,20,5.5,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,33.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim etel korea,korea,korea,1,4,20,5.5,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,33.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+south korea with phone number esim,south korea,south korea,1,4,20,5.5,0,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",33.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+klook south korea esim review,south korea,south korea,1,4,20,5.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,33.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea with phone number esim,korea,korea,1,4,20,5.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",33.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+unlimited data esim south korea,south korea,south korea,1,3,15,8.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",33.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+where to buy esim in philippines,generic_esim,,1,4,20,5.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,33.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+best esim for south korea from australia,south korea,south korea,1,3,15,7.666666666666667,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,32.67,niche_long_tail,signals=autocomplete;count=3;commercial=1
+best unlimited data esim korea,korea,korea,1,3,15,7.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",32.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+does ee support esim,generic_esim,,1,4,20,4.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,32.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea erfahrungen,korea,korea,1,4,20,4.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,32.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea traveloka,korea,korea,1,4,20,4.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,32.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+how to use esim when traveling,generic_esim,,1,4,20,4.0,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback",32.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim lg u,korea,korea,1,4,20,4.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",32.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea and taiwan esim,korea,korea,1,4,20,3.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",31.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim card unlimited data,korea,korea,1,3,15,6.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,31.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+korea esim klook,korea,korea,1,4,20,3.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",31.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea esim with calls,korea,korea,1,4,20,3.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",31.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+unlimited data esim japan and korea,korea,korea,1,3,15,6.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",31.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+does esim have a phone number,generic_esim,,1,4,20,2.75,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",30.75,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim iphone,generic_esim,,1,4,16,6.75,0,trends_related,top,30.75,rising,signals=trends_related;count=4;commercial=0
+korea esim card with phone number,korea,korea,1,3,15,8.666666666666666,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,30.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+best esim for south korea reddit,south korea,south korea,1,3,15,5.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,30.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+esim korea and japan,korea,korea,1,4,20,2.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,30.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+japan and south korea esim reddit,south korea,south korea,1,4,20,2.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,30.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+unlimited data esim for south korea from sky,south korea,south korea,1,3,15,5.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",30.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+use esim for data only,generic_esim,,1,4,20,1.5,0,autocomplete,"modifier:unlimited|requests-suggest-endpoint-fallback,requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",29.5,niche_long_tail,signals=autocomplete;count=4;commercial=0
+does south korea have health insurance,south korea,south korea,1,4,20,1.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",29.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+esim korea unlimited data,korea,korea,1,2,10,10.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,29.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea and thailand esim,korea,korea,1,4,20,1.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",29.0,niche_long_tail,signals=autocomplete;count=4;commercial=0
+korea best esim,korea,korea,1,2,10,10.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,29.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea cheap esim,korea,korea,1,2,10,10.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,29.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+unlimited data esim japan and south korea,south korea,south korea,1,3,15,4.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",29.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+best esim korea unlimited data,korea,korea,1,3,15,3.6666666666666665,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,28.67,niche_long_tail,signals=autocomplete;count=3;commercial=1
+does china mobile support esim,generic_esim,,1,3,15,6.666666666666667,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",28.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+does esim work in nepal,generic_esim,,1,3,15,6.666666666666667,0,autocomplete,"letter:b|requests-suggest-endpoint-fallback,modifier:buy|requests-suggest-endpoint-fallback",28.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+korea esim and phone number,korea,korea,1,3,15,6.666666666666667,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,28.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+korea travel easy esim,korea,korea,1,3,15,6.666666666666667,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,28.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+can esim be used internationally,generic_esim,,1,3,15,6.333333333333333,0,autocomplete,"letter:g|requests-suggest-endpoint-fallback,modifier:best|requests-suggest-endpoint-fallback",28.33,niche_long_tail,signals=autocomplete;count=3;commercial=0
 travel esim,generic_esim,,2,3,13,4.0,0,"autocomplete,trends_related","requests-suggest-endpoint-fallback,rising,top",28.0,rising,"signals=autocomplete,trends_related;count=3;commercial=0"
-best esim for korea reddit,korea,korea,1,2,10,9.0,1,autocomplete,requests-suggest-endpoint-fallback,28.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-unlimited data esim korea reddit,korea,korea,1,2,10,9.0,1,autocomplete,requests-suggest-endpoint-fallback,28.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best esim for korea and japan,korea,korea,1,2,10,8.0,1,autocomplete,requests-suggest-endpoint-fallback,27.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-unlimited data esim south korea,south korea,south korea,1,2,10,8.0,1,autocomplete,requests-suggest-endpoint-fallback,27.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+best south korea esim reddit,south korea,south korea,1,2,10,9.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,28.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+best unlimited data esim south korea,south korea,south korea,1,3,15,3.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",28.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+do you need travel insurance for south korea,south korea,south korea,1,3,15,6.0,0,autocomplete,"letter:b|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback",28.0,niche_long_tail,signals=autocomplete;count=3;commercial=0
+esim korea unlimited,korea,korea,1,2,10,9.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,28.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea esim best reddit,korea,korea,1,2,10,9.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,28.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea tourist esim,korea,korea,1,3,15,6.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",28.0,niche_long_tail,signals=autocomplete;count=3;commercial=0
+best esim for hong kong and korea,korea,korea,1,3,15,2.6666666666666665,1,autocomplete,"letter:a|requests-suggest-endpoint-fallback,letter:h|requests-suggest-endpoint-fallback",27.67,niche_long_tail,signals=autocomplete;count=3;commercial=1
+korea esim trip com,korea,korea,1,3,15,5.666666666666667,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,27.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+which is the best esim,generic_esim,,1,3,15,2.6666666666666665,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:reddit|requests-suggest-endpoint-fallback",27.67,niche_long_tail,signals=autocomplete;count=3;commercial=1
+5g south korea unlimited data esim skt,south korea,south korea,1,3,15,2.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",27.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+best esim south korea japan,south korea,south korea,1,2,10,8.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,27.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea best reddit,korea,korea,1,2,10,8.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,27.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea unlimited data reddit,korea,korea,1,2,10,8.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,27.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+airalo,generic_esim,,1,4,16,2.75,0,trends_related,top,26.75,rising,signals=trends_related;count=4;commercial=0
 esim japan,generic_esim,,2,3,13,2.6666666666666665,0,"autocomplete,trends_related","requests-suggest-endpoint-fallback,rising,top",26.67,rising,"signals=autocomplete,trends_related;count=3;commercial=0"
-best esim for korea travel,korea,korea,1,2,10,7.0,1,autocomplete,requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best unlimited data esim korea,korea,korea,1,2,10,7.0,1,autocomplete,requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best esim for korea and china,korea,korea,1,2,10,6.0,1,autocomplete,requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best korea esim with phone number,korea,korea,1,2,10,6.0,1,autocomplete,requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-korea and japan esim,korea,korea,1,2,10,9.0,0,autocomplete,requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim tourist,korea,korea,1,2,10,9.0,0,autocomplete,requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-unlimited data esim japan and korea,korea,korea,1,2,10,6.0,1,autocomplete,requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best esim for korea and japan reddit,korea,korea,1,2,10,5.0,1,autocomplete,requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-korea esim data,korea,korea,1,2,10,8.0,0,autocomplete,requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim with phone number klook,korea,korea,1,2,10,8.0,0,autocomplete,requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-unlimited data esim for south korea from sky,south korea,south korea,1,2,10,5.0,1,autocomplete,requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-japan esim,generic_esim,,1,3,12,4.333333333333333,0,trends_related,"rising,top",23.33,rising,signals=trends_related;count=3;commercial=0
-best esim for korea with phone number,korea,korea,1,2,10,4.0,1,autocomplete,requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-korea reddit esim,korea,korea,1,2,10,7.0,0,autocomplete,requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-unlimited data esim japan and south korea,south korea,south korea,1,2,10,4.0,1,autocomplete,requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+should i get esim or physical sim,generic_esim,,1,3,15,4.666666666666667,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:reddit|requests-suggest-endpoint-fallback",26.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+best esim for korea trip,korea,korea,1,3,15,1.0,1,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",26.0,niche_long_tail,signals=autocomplete;count=3;commercial=1
+best korea esim reddit,korea,korea,1,2,10,7.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea buy,korea,korea,1,2,10,10.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea foreigner,korea,korea,1,2,10,10.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea google pixel,korea,korea,1,2,10,10.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea review,korea,korea,1,2,10,10.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+eskimo esim south korea,south korea,south korea,1,2,10,10.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan and korea esim unlimited,korea,korea,1,2,10,7.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea data esim,korea,korea,1,2,10,10.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim data plan,korea,korea,1,2,10,7.0,1,autocomplete,letter:d|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+korea tour esim,korea,korea,1,3,15,4.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",26.0,niche_long_tail,signals=autocomplete;count=3;commercial=0
+where to buy prepaid sim card in korea,korea,korea,1,2,10,7.0,1,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,26.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim vs physical sim,generic_esim,,1,3,15,3.6666666666666665,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:reddit|requests-suggest-endpoint-fallback",25.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+both korea and japan esim,korea,korea,1,2,10,9.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+cheapest esim data plan,generic_esim,,1,2,10,6.0,1,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:unlimited|requests-suggest-endpoint-fallback",25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+cheapest esim for korea reddit,korea,korea,1,2,10,6.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+china korea and japan esim,korea,korea,1,2,10,9.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim card in korea for foreigners,korea,korea,1,2,10,9.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea buy online,korea,korea,1,2,10,9.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea data only,korea,korea,1,2,10,9.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea data plan,korea,korea,1,2,10,6.0,1,autocomplete,letter:d|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea holafly,korea,korea,1,2,10,9.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea review,south korea,south korea,1,2,10,9.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+get south korea esim,south korea,south korea,1,2,10,9.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+good esim for korea,korea,korea,1,2,10,9.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+klook korea esim review,korea,korea,1,2,10,9.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim buy online,korea,korea,1,2,10,9.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim for foreigners,korea,korea,1,2,10,9.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim hotspot,korea,korea,1,2,10,9.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+where to buy sim card in korea,korea,korea,1,2,10,9.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,25.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+does huawei have esim,generic_esim,,1,3,15,2.6666666666666665,0,autocomplete,"letter:h|requests-suggest-endpoint-fallback,modifier:best|requests-suggest-endpoint-fallback",24.67,niche_long_tail,signals=autocomplete;count=3;commercial=0
+best korea esim card,korea,korea,1,2,10,5.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+china korea esim,korea,korea,1,2,10,8.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea cheapest,korea,korea,1,2,10,5.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea data and voice,korea,korea,1,2,10,8.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim review,generic_esim,,1,2,10,8.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea and hong kong,south korea,south korea,1,2,10,8.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea buy,south korea,south korea,1,2,10,8.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea unlimited data,south korea,south korea,1,2,10,5.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+get esim for korea,korea,korea,1,2,10,8.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+gigago esim south korea,south korea,south korea,1,2,10,8.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+is esim korea good,korea,korea,1,2,10,8.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim data and voice,korea,korea,1,2,10,8.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim travelkon,korea,korea,1,2,10,8.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea telecom esim review,korea,korea,1,2,10,8.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korean englishman esim,korea,korea,1,2,10,8.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korean esim buy,korea,korea,1,2,10,8.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+saily esim south korea review,south korea,south korea,1,2,10,8.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+south korea data esim reddit,south korea,south korea,1,2,10,8.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,24.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+visit korea esim,korea,korea,1,3,15,2.0,0,autocomplete,"requests-suggest-endpoint-fallback,seed|requests-suggest-endpoint-fallback",24.0,niche_long_tail,signals=autocomplete;count=3;commercial=0
+airalo esim,generic_esim,,1,3,12,4.666666666666667,0,trends_related,top,23.67,rising,signals=trends_related;count=3;commercial=0
+airalo esim south korea review,south korea,south korea,1,2,10,7.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+airalo south korea esim reddit,south korea,south korea,1,2,10,7.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best esim data korea,korea,korea,1,1,5,10.0,1,autocomplete,letter:d|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for both japan and korea,korea,korea,1,1,5,10.0,1,autocomplete,letter:b|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for china korea and japan,korea,korea,1,1,5,10.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim korea,korea,korea,1,1,5,10.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim to get for korea,korea,korea,1,1,5,10.0,1,autocomplete,letter:g|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+esim card for korea travel,korea,korea,1,2,10,7.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea best price,korea,korea,1,2,10,4.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea comparison,korea,korea,1,2,10,7.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea discount,korea,korea,1,2,10,7.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea hotspot,korea,korea,1,2,10,7.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea with phone number reddit,korea,korea,1,2,10,7.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea unlimited,south korea,south korea,1,2,10,4.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim vs nano sim speed test,generic_esim,,1,2,10,7.0,0,autocomplete,modifier:best|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+get korea esim,korea,korea,1,2,10,7.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+good esim for south korea,south korea,south korea,1,2,10,7.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+is esim available in philippines,generic_esim,,1,2,10,7.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim agoda,korea,korea,1,2,10,7.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim australia,korea,korea,1,2,10,7.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim red review,korea,korea,1,2,10,7.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim travel reddit,korea,korea,1,2,10,7.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+unlimited data esim for korea,korea,korea,1,1,5,10.0,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,23.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
 best esim,generic_esim,,1,2,8,5.5,1,trends_related,"rising,top",22.5,rising,signals=trends_related;count=2;commercial=1
-best esim for korea 2025,korea,korea,1,2,10,3.0,1,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best unlimited data esim south korea,south korea,south korea,1,2,10,3.0,1,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-korea and japan reddit esim,korea,korea,1,2,10,6.0,0,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim for tourist,korea,korea,1,2,10,6.0,0,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim red,korea,korea,1,2,10,6.0,0,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea tourist esim,korea,korea,1,2,10,6.0,0,autocomplete,requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-esim iphone,generic_esim,,1,2,8,7.5,0,trends_related,top,21.5,rising,signals=trends_related;count=2;commercial=0
-5g south korea unlimited data esim skt,south korea,south korea,1,2,10,2.0,1,autocomplete,requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-best esim for korea and taiwan,korea,korea,1,2,10,2.0,1,autocomplete,requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
-korea esim data only,korea,korea,1,2,10,5.0,0,autocomplete,requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea with phone number esim,korea,korea,1,2,10,5.0,0,autocomplete,requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-best esim for korea trip,korea,korea,1,2,10,1.0,1,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+airalo korea esim review,korea,korea,1,2,10,6.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best esim for hong kong and south korea,south korea,south korea,1,1,5,9.0,1,autocomplete,letter:h|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim korea travel reddit,korea,korea,1,1,5,9.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim with phone number south korea,south korea,south korea,1,1,5,9.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best way to get esim for korea,korea,korea,1,1,5,9.0,1,autocomplete,letter:g|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+bytesim esim south korea,south korea,south korea,1,2,10,6.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim corea e giappone,generic_esim,,1,2,10,6.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim japan korea unlimited data,korea,korea,1,2,10,3.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea chingu,korea,korea,1,2,10,6.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea hong kong,korea,korea,1,2,10,6.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim net reviews,generic_esim,,1,2,10,6.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim with korean phone number,korea,korea,1,2,10,6.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim with phone number,generic_esim,,1,2,10,6.0,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim zuid korea en japan,korea,korea,1,2,10,6.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+fastest esim for korea,korea,korea,1,2,10,6.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+get esim for south korea,south korea,south korea,1,2,10,6.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+holafly esim south korea reddit,south korea,south korea,1,2,10,6.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+is klook esim korea good,korea,korea,1,2,10,6.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+is there esim in nepal,generic_esim,,1,2,10,6.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan korea esim reddit,korea,korea,1,2,10,6.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+klook south korea esim reddit,south korea,south korea,1,2,10,6.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim activation,korea,korea,1,2,10,6.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim bytesim,korea,korea,1,2,10,6.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim discount,korea,korea,1,2,10,6.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim voice and data,korea,korea,1,2,10,6.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+nomad esim south korea review,south korea,south korea,1,2,10,6.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+south korea sim card price,south korea,south korea,1,2,10,3.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+unlimited data esim for south korea,south korea,south korea,1,1,5,9.0,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,22.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+esim us phone number,generic_esim,,1,2,10,5.5,0,autocomplete,"modifier:for travel|requests-suggest-endpoint-fallback,modifier:with phone number|requests-suggest-endpoint-fallback",21.5,niche_long_tail,signals=autocomplete;count=2;commercial=0
+airalo south korea esim not working,south korea,south korea,1,2,10,5.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best data esim for korea,korea,korea,1,2,10,2.0,1,autocomplete,letter:d|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+best esim card korea,korea,korea,1,1,5,8.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim to get for south korea,south korea,south korea,1,1,5,8.0,1,autocomplete,letter:g|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim with phone number for south korea,south korea,south korea,1,1,5,8.0,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best unlimited data esim for south korea,south korea,south korea,1,1,5,8.0,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best unlimited esim korea,korea,korea,1,1,5,8.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+can i use esim in philippines,generic_esim,,1,2,10,5.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+cheapest esim korea travel,korea,korea,1,1,5,8.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+does huawei support esim,generic_esim,,1,2,10,5.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim corea giappone,generic_esim,,1,2,10,5.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim f r korea,korea,korea,1,2,10,5.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim japan korea unlimited,korea,korea,1,2,10,2.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+esim korea travel reddit,korea,korea,1,2,10,5.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea data only,south korea,south korea,1,2,10,5.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea holafly,south korea,south korea,1,2,10,5.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how do i purchase an esim,generic_esim,,1,2,10,5.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how to get south korea esim,south korea,south korea,1,2,10,5.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan korea esim unlimited data,korea,korea,1,2,10,2.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=1
+klook korea esim reddit,korea,korea,1,2,10,5.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea and vietnam esim,korea,korea,1,2,10,5.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 1 day,korea,korea,1,2,10,5.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim calls,korea,korea,1,2,10,5.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim card for tourist,korea,korea,1,2,10,5.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim data and call,korea,korea,1,2,10,5.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim for data,korea,korea,1,2,10,5.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim with korean number,korea,korea,1,2,10,5.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+should i get esim for korea,korea,korea,1,2,10,5.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+south korea exit code,south korea,south korea,1,2,10,5.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+ubigi esim south korea review,south korea,south korea,1,2,10,5.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+which sim is best for unlimited data,generic_esim,,1,1,5,8.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,21.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+korean esim,korea,korea,1,3,12,1.6666666666666667,0,trends_related,top,20.67,rising,signals=trends_related;count=3;commercial=0
+does airtel esim work internationally,generic_esim,,1,2,10,4.5,0,autocomplete,"modifier:best|requests-suggest-endpoint-fallback,modifier:for travel|requests-suggest-endpoint-fallback",20.5,niche_long_tail,signals=autocomplete;count=2;commercial=0
+is airtel esim better than physical sim,generic_esim,,1,2,10,4.5,0,autocomplete,"letter:f|requests-suggest-endpoint-fallback,modifier:best|requests-suggest-endpoint-fallback",20.5,niche_long_tail,signals=autocomplete;count=2;commercial=0
+airalo korea esim,korea,korea,1,2,10,4.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+airalo korea esim reddit,korea,korea,1,2,10,4.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best data esim for south korea,south korea,south korea,1,1,5,7.0,1,autocomplete,letter:d|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim card for korea and japan,korea,korea,1,1,5,7.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for japan korea reddit,korea,korea,1,1,5,7.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for korea tourist,korea,korea,1,1,5,7.0,1,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for south korea,south korea,south korea,1,1,5,7.0,1,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best unlimited esim for south korea,south korea,south korea,1,1,5,7.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
 esim,generic_esim,,1,1,5,10.0,0,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-korea and china esim,korea,korea,1,2,10,4.0,0,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim lg u,korea,korea,1,2,10,4.0,0,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim with korean phone number,korea,korea,1,2,10,4.0,0,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea tour esim,korea,korea,1,2,10,4.0,0,autocomplete,requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-buy korea esim with phone number,korea,korea,1,2,10,3.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim f r korea und japan,korea,korea,1,2,10,4.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea bytesim,korea,korea,1,2,10,4.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea cost,korea,korea,1,2,10,4.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea with korean phone number,korea,korea,1,2,10,4.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea australia,south korea,south korea,1,2,10,4.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea data,south korea,south korea,1,2,10,4.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim with phone number for korea,korea,korea,1,1,5,10.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+fastest esim south korea,south korea,south korea,1,2,10,4.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+holafly esim south korea review,south korea,south korea,1,2,10,4.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how to get esim korea with phone number,korea,korea,1,1,5,10.0,0,autocomplete,letter:g|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+japan and korea esim reddit,korea,korea,1,2,10,4.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 24 hours,korea,korea,1,2,10,4.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 7 days,korea,korea,1,2,10,4.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim data only reddit,korea,korea,1,2,10,4.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim for students,korea,korea,1,2,10,4.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim with local number,korea,korea,1,2,10,4.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+philippines and korea esim,korea,korea,1,2,10,4.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+saily korea esim review,korea,korea,1,2,10,4.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+south korea and hong kong esim,south korea,south korea,1,2,10,4.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+south korea qr code,south korea,south korea,1,2,10,4.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+travel esim for korea,korea,korea,1,1,5,10.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+travel esim korea and japan,korea,korea,1,1,5,10.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+why esim is better,generic_esim,,1,2,10,4.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,20.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best esim for japan and korea travel,korea,korea,1,1,5,6.0,1,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for japan and south korea reddit,south korea,south korea,1,1,5,6.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for korea and thailand,korea,korea,1,1,5,6.0,1,autocomplete,letter:a|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for south korea and china,south korea,south korea,1,1,5,6.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best unlimited esim for japan and korea,korea,korea,1,1,5,6.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+cheapest ee unlimited data sim,generic_esim,,1,1,5,6.0,1,autocomplete,letter:b|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+does kogan have esim,generic_esim,,1,2,10,3.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+does korea have esim,korea,korea,1,2,10,3.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 esim canada,generic_esim,,1,1,4,10.0,0,trends_related,rising,19.0,rising,signals=trends_related;count=1;commercial=0
+esim di korea,korea,korea,1,2,10,3.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim f r korea kaufen,korea,korea,1,2,10,3.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea chingu mobile,korea,korea,1,2,10,3.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 esim south korea,south korea,south korea,1,1,5,9.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-korea and taiwan esim,korea,korea,1,2,10,3.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim klook,korea,korea,1,2,10,3.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim with calls,korea,korea,1,2,10,3.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim with phone number for south korea,south korea,south korea,1,1,5,9.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+korea and hong kong esim,korea,korea,1,2,10,3.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 5 days,korea,korea,1,2,10,3.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim deals,korea,korea,1,2,10,3.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim red reddit,korea,korea,1,2,10,3.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea with number esim,korea,korea,1,2,10,3.0,0,autocomplete,modifier:with phone number|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korean free esim,korea,korea,1,2,10,3.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+maya esim south korea review,south korea,south korea,1,2,10,3.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+nomad esim korea review,korea,korea,1,2,10,3.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 travel esim mongolia,generic_esim,,1,1,5,9.0,0,autocomplete,requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+unlimited data sim card plans,generic_esim,,1,1,5,6.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+unlimited international data plans,generic_esim,,1,1,5,6.0,1,autocomplete,modifier:best|requests-suggest-endpoint-fallback,19.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for japan south korea and china,south korea,south korea,1,1,5,5.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for korea and philippines,korea,korea,1,1,5,5.0,1,autocomplete,letter:a|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+can i use data from esim,generic_esim,,1,1,5,8.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+cheap esim data plans,generic_esim,,1,1,5,5.0,1,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+does t mobile esim work internationally,generic_esim,,1,1,5,8.0,0,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+esim busan korea,korea,korea,1,2,10,2.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea and china,korea,korea,1,2,10,2.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea call,korea,korea,1,2,10,2.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim vs normal sim,generic_esim,,1,2,10,2.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim vs sim card,generic_esim,,1,2,10,2.0,0,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how to get esim for korea,korea,korea,1,2,10,2.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 iphone,generic_esim,,1,1,4,9.0,0,trends_related,top,18.0,rising,signals=trends_related;count=1;commercial=0
-korea esim with local phone number,korea,korea,1,2,10,2.0,0,autocomplete,requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan and south korea esim,south korea,south korea,1,2,10,2.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+jjang esim korea review,korea,korea,1,2,10,2.0,0,autocomplete,modifier:review|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea and singapore esim,korea,korea,1,2,10,2.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 30 days,korea,korea,1,2,10,2.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim call,korea,korea,1,2,10,2.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim data reddit,korea,korea,1,2,10,2.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim red by sk telecom,korea,korea,1,2,10,2.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim with number reddit,korea,korea,1,1,5,8.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 saily,generic_esim,,1,1,4,9.0,0,trends_related,rising,18.0,rising,signals=trends_related;count=1;commercial=0
+south korea and china esim,south korea,south korea,1,2,10,2.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+travel esim for south korea,south korea,south korea,1,1,5,8.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim usa,generic_esim,,1,1,5,8.0,0,autocomplete,requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-visit korea esim,korea,korea,1,2,10,2.0,0,autocomplete,requests-suggest-endpoint-fallback,18.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 what is a esim,generic_esim,,1,2,8,4.0,0,trends_related,"rising,top",18.0,rising,signals=trends_related;count=2;commercial=0
 what is esim,generic_esim,,1,2,8,3.5,0,trends_related,"rising,top",17.5,rising,signals=trends_related;count=2;commercial=0
-does south korea have health insurance,south korea,south korea,1,2,10,1.0,0,autocomplete,requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea and thailand esim,korea,korea,1,2,10,1.0,0,autocomplete,requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
-korea esim tourist reddit,korea,korea,1,2,10,1.0,0,autocomplete,requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best and cheapest esim for korea,korea,korea,1,1,5,4.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for korea and vietnam,korea,korea,1,1,5,4.0,1,autocomplete,letter:a|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+cheapest esim plan singapore,generic_esim,,1,1,5,4.0,1,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+china japan south korea esim,south korea,south korea,1,1,5,7.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+does esim use data,generic_esim,,1,1,5,7.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+does etisalat esim work roaming,generic_esim,,1,1,5,7.0,0,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+ee activate esim,generic_esim,,1,2,10,1.0,0,autocomplete,letter:e|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea and taiwan,korea,korea,1,2,10,1.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea coupon,korea,korea,1,2,10,1.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim korea how much,korea,korea,1,2,10,1.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+esim south korea incheon airport,south korea,south korea,1,2,10,1.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how much is ee esim,generic_esim,,1,2,10,1.0,0,autocomplete,modifier:unlimited|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how to buy esim,generic_esim,,1,2,10,1.0,0,autocomplete,modifier:buy|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+how to buy esim for korea,korea,korea,1,2,10,1.0,0,autocomplete,letter:h|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan and korea esim,korea,korea,1,2,10,1.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+japan and korea esim card,korea,korea,1,2,10,1.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea data esim card,korea,korea,1,2,10,1.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim 3 days,korea,korea,1,2,10,1.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+korea esim changi,korea,korea,1,2,10,1.0,0,autocomplete,letter:c|requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
 south korea,south korea,south korea,1,1,4,8.0,0,trends_related,top,17.0,rising,signals=trends_related;count=1;commercial=0
 travel esim australia,generic_esim,,1,1,5,7.0,0,autocomplete,requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-use esim for data only,generic_esim,,1,2,10,1.0,0,autocomplete,requests-suggest-endpoint-fallback,17.0,niche_long_tail,signals=autocomplete;count=2;commercial=0
+best esim card for south korea,south korea,south korea,1,1,5,3.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+best esim for korea and singapore,korea,korea,1,1,5,3.0,1,autocomplete,letter:a|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+can i activate esim abroad,generic_esim,,1,1,5,6.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 esim card,generic_esim,,1,1,4,7.0,0,trends_related,top,16.0,rising,signals=trends_related;count=1;commercial=0
 esim china,generic_esim,,1,1,5,6.0,0,autocomplete,requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+esim with us number,generic_esim,,1,1,5,6.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+how to use esim in philippines,generic_esim,,1,1,5,6.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 saily esim,generic_esim,,1,1,4,7.0,0,trends_related,rising,16.0,rising,signals=trends_related;count=1;commercial=0
+travel esim for japan and korea,korea,korea,1,1,5,6.0,0,autocomplete,letter:f|requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim india,generic_esim,,1,1,5,6.0,0,autocomplete,requests-suggest-endpoint-fallback,16.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-airalo,generic_esim,,1,2,8,1.5,0,trends_related,top,15.5,rising,signals=trends_related;count=2;commercial=0
+best esim company for south korea,south korea,south korea,1,1,5,2.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
+can i use esim for data,generic_esim,,1,1,5,5.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 esim korean,korea,korea,1,1,5,5.0,0,autocomplete,requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 gigsky esim,generic_esim,,1,1,4,6.0,0,trends_related,rising,15.0,rising,signals=trends_related;count=1;commercial=0
+how to switch to esim ee,generic_esim,,1,1,5,5.0,0,autocomplete,letter:b|requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+is esim available in thailand,generic_esim,,1,1,5,5.0,0,autocomplete,letter:a|requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim europe,generic_esim,,1,1,5,5.0,0,autocomplete,requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+which provider has esim,generic_esim,,1,1,5,5.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,15.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 free esim,generic_esim,,1,2,8,0.5,0,trends_related,"rising,top",14.5,rising,signals=trends_related;count=2;commercial=0
+best esim card for japan and south korea,south korea,south korea,1,1,5,1.0,1,autocomplete,letter:c|requests-suggest-endpoint-fallback,14.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
 best esim for japan,generic_esim,,1,1,4,2.0,1,trends_related,rising,14.0,rising,signals=trends_related;count=1;commercial=1
+best esim for south korea and japan,south korea,south korea,1,1,5,1.0,1,autocomplete,letter:a|requests-suggest-endpoint-fallback,14.0,niche_long_tail,signals=autocomplete;count=1;commercial=1
 buy esim,generic_esim,,1,2,8,0.0,0,trends_related,"rising,top",14.0,rising,signals=trends_related;count=2;commercial=0
 esim vietnam,generic_esim,,1,1,5,4.0,0,autocomplete,requests-suggest-endpoint-fallback,14.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+how to buy digi esim,generic_esim,,1,1,5,4.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,14.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 transfer esim,generic_esim,,1,1,4,5.0,0,trends_related,top,14.0,rising,signals=trends_related;count=1;commercial=0
 travel esim uk,generic_esim,,1,1,5,4.0,0,autocomplete,requests-suggest-endpoint-fallback,14.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-airalo esim,generic_esim,,1,1,4,4.0,0,trends_related,top,13.0,rising,signals=trends_related;count=1;commercial=0
+does redmi note 9 support esim,generic_esim,,1,1,5,3.0,0,autocomplete,modifier:reddit|requests-suggest-endpoint-fallback,13.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 esim mexico,generic_esim,,1,1,4,4.0,0,trends_related,rising,13.0,rising,signals=trends_related;count=1;commercial=0
 esim thailand,generic_esim,,1,1,5,3.0,0,autocomplete,requests-suggest-endpoint-fallback,13.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+how to change esim to esim,generic_esim,,1,1,5,3.0,0,autocomplete,letter:d|requests-suggest-endpoint-fallback,13.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim japan,generic_esim,,1,1,5,3.0,0,autocomplete,requests-suggest-endpoint-fallback,13.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 verizon esim,generic_esim,,1,1,4,4.0,0,trends_related,top,13.0,rising,signals=trends_related;count=1;commercial=0
 esim philippines,generic_esim,,1,1,5,2.0,0,autocomplete,requests-suggest-endpoint-fallback,12.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
+how can i change my normal sim to esim,generic_esim,,1,1,5,2.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,12.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim thailand,generic_esim,,1,1,5,2.0,0,autocomplete,requests-suggest-endpoint-fallback,12.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 verizon,generic_esim,,1,1,4,3.0,0,trends_related,top,12.0,rising,signals=trends_related;count=1;commercial=0
+does esim work on international roaming,generic_esim,,1,1,5,1.0,0,autocomplete,modifier:for travel|requests-suggest-endpoint-fallback,11.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 esimdb,generic_esim,,1,1,5,1.0,0,autocomplete,requests-suggest-endpoint-fallback,11.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
 travel esim canada,generic_esim,,1,1,5,1.0,0,autocomplete,requests-suggest-endpoint-fallback,11.0,niche_long_tail,signals=autocomplete;count=1;commercial=0
-korean esim,korea,korea,1,1,4,1.0,0,trends_related,top,10.0,rising,signals=trends_related;count=1;commercial=0
 apple esim,generic_esim,,1,1,4,0.0,0,trends_related,top,9.0,niche_long_tail,signals=trends_related;count=1;commercial=0
 at t free trial esim,generic_esim,,1,1,4,0.0,0,trends_related,rising,9.0,niche_long_tail,signals=trends_related;count=1;commercial=0
 att,generic_esim,,1,1,4,0.0,0,trends_related,top,9.0,niche_long_tail,signals=trends_related;count=1;commercial=0
