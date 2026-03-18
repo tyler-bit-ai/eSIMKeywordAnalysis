@@ -12,6 +12,16 @@ const elements = {
   datasetVersion: document.querySelector("#dataset-version"),
   generatedAt: document.querySelector("#generated-at"),
   sourceReportDir: document.querySelector("#source-report-dir"),
+  helpButton: document.querySelector("#help-button"),
+  helpDialog: document.querySelector("#help-dialog"),
+  helpClose: document.querySelector("#help-close"),
+  helpScoreTitle: document.querySelector("#help-score-title"),
+  helpScoreSummary: document.querySelector("#help-score-summary"),
+  helpFormulaList: document.querySelector("#help-formula-list"),
+  helpSignalWeights: document.querySelector("#help-signal-weights"),
+  helpPriorityRules: document.querySelector("#help-priority-rules"),
+  helpBucketRules: document.querySelector("#help-bucket-rules"),
+  helpSections: document.querySelector("#help-sections"),
   statusText: document.querySelector("#status-text"),
   searchInput: document.querySelector("#search-input"),
   priorityFilter: document.querySelector("#priority-filter"),
@@ -76,6 +86,42 @@ function renderMeta(payload) {
   elements.datasetVersion.textContent = payload.dataset_version || "unknown";
   elements.generatedAt.textContent = payload.generated_at || "unknown";
   elements.sourceReportDir.textContent = payload.source_report_dir || "unknown";
+}
+
+function renderHelp(payload) {
+  const help = payload.help || {};
+  const scoreRule = help.score_rule || {};
+  const sections = help.sections || [];
+
+  elements.helpScoreTitle.textContent = scoreRule.title || "How scoring works";
+  elements.helpScoreSummary.textContent = scoreRule.summary || "";
+  renderSimpleList(elements.helpFormulaList, scoreRule.formula_steps || []);
+  renderSimpleList(elements.helpPriorityRules, scoreRule.marketing_priority_rules || []);
+  renderSimpleList(elements.helpBucketRules, scoreRule.bucket_rules || []);
+
+  elements.helpSignalWeights.innerHTML = "";
+  for (const [signal, weight] of Object.entries(scoreRule.signal_weights || {})) {
+    const card = document.createElement("article");
+    card.className = "list-card";
+    card.innerHTML = `
+      <h3>${escapeHtml(signal)}</h3>
+      <p class="muted-inline">weight ${escapeHtml(weight)}</p>
+    `;
+    elements.helpSignalWeights.append(card);
+  }
+
+  elements.helpSections.innerHTML = "";
+  for (const section of sections) {
+    const card = document.createElement("article");
+    card.className = "list-card";
+    card.innerHTML = `
+      <h3>${escapeHtml(section.title || "")}</h3>
+      <p class="muted-inline"><strong>What it means:</strong> ${escapeHtml(section.business_meaning || "")}</p>
+      <p class="muted-inline"><strong>How to use it:</strong> ${escapeHtml(section.how_to_use || "")}</p>
+      <p class="muted-inline"><strong>What drives it:</strong> ${escapeHtml(section.scoring_note || "")}</p>
+    `;
+    elements.helpSections.append(card);
+  }
 }
 
 function renderKpis(payload) {
@@ -191,6 +237,15 @@ function renderCollection(container, rows, buildCard) {
 
   for (const row of rows) {
     container.append(buildCard(row));
+  }
+}
+
+function renderSimpleList(container, values) {
+  container.innerHTML = "";
+  for (const value of values) {
+    const item = document.createElement("li");
+    item.textContent = value;
+    container.append(item);
   }
 }
 
@@ -371,6 +426,12 @@ function bindEvents() {
   elements.snapshotExport.addEventListener("click", () => {
     downloadRows(`snapshot-${state.activeSnapshotTab}.csv`, state.payload?.snapshot_changes?.[state.activeSnapshotTab] || []);
   });
+  elements.helpButton.addEventListener("click", () => {
+    elements.helpDialog.showModal();
+  });
+  elements.helpClose.addEventListener("click", () => {
+    elements.helpDialog.close();
+  });
 
   for (const button of elements.snapshotTabs) {
     button.addEventListener("click", () => {
@@ -390,6 +451,7 @@ async function main() {
     const payload = await loadPayload();
     state.payload = payload;
     renderMeta(payload);
+    renderHelp(payload);
     initFilters(payload);
     renderKpis(payload);
     renderTargetTable(getFilteredTargets());
@@ -403,6 +465,7 @@ async function main() {
     elements.generatedAt.textContent = "unavailable";
     elements.datasetVersion.textContent = "unavailable";
     elements.sourceReportDir.textContent = "unavailable";
+    renderHelp({});
     renderKpis({ kpis: {} });
     renderTargetTable([]);
     renderModifierSummary({ modifier_summary: [] });

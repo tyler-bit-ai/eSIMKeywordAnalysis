@@ -23,6 +23,7 @@
           </p>
         </div>
         <div class="hero-meta">
+          <button class="help-button" id="help-button" type="button">Help</button>
           <div class="meta-card">
             <span class="meta-label">Dataset</span>
             <strong id="dataset-version">loading...</strong>
@@ -186,6 +187,40 @@
     <template id="empty-state-template">
       <div class="empty-state">No published data available for this view.</div>
     </template>
+
+    <dialog class="help-dialog" id="help-dialog">
+      <div class="help-dialog-header">
+        <div>
+          <p class="eyebrow">Guide</p>
+          <h2>Dashboard Help</h2>
+        </div>
+        <button class="help-close" id="help-close" type="button">Close</button>
+      </div>
+      <section class="help-block">
+        <h3 id="help-score-title">How scoring works</h3>
+        <p id="help-score-summary"></p>
+      </section>
+      <section class="help-block">
+        <h3>Score Formula</h3>
+        <ul class="help-list" id="help-formula-list"></ul>
+      </section>
+      <section class="help-block">
+        <h3>Signal Weights</h3>
+        <div class="stack-list" id="help-signal-weights"></div>
+      </section>
+      <section class="help-block">
+        <h3>Marketing Priority</h3>
+        <ul class="help-list" id="help-priority-rules"></ul>
+      </section>
+      <section class="help-block">
+        <h3>Keyword Buckets</h3>
+        <ul class="help-list" id="help-bucket-rules"></ul>
+      </section>
+      <section class="help-block">
+        <h3>Section Guide</h3>
+        <div class="stack-list" id="help-sections"></div>
+      </section>
+    </dialog>
 
     <script src="./app.js"></script>
   </body>

@@ -10,6 +10,7 @@ from typing import Any
 
 import pandas as pd
 
+from keyword_analysis.dashboard_help import build_help_payload
 from keyword_analysis.monitoring import compare_snapshots
 
 
@@ -219,6 +220,7 @@ def build_public_dashboard_payload(
         "generated_at": timestamp.astimezone(UTC).isoformat().replace("+00:00", "Z"),
         "source_report_dir": str(source_report_dir),
         "dataset_version": PUBLIC_DASHBOARD_DATASET_VERSION,
+        "help": _serialize_help_payload(),
         "kpis": kpis,
         "target_table": _serialize_target_table(dataset.korea_marketing_targets),
         "modifier_summary": _serialize_frame_records(dataset.modifier_summary),
@@ -237,6 +239,32 @@ def build_public_dashboard_payload(
             "has_current_snapshot": bool(current_snapshot),
             "notes": [],
         },
+    }
+
+
+def _serialize_help_payload() -> dict[str, Any]:
+    payload = build_help_payload()
+    score_rule = payload["score_rule"]
+    sections = payload["sections"]
+    return {
+        "score_rule": {
+            "title": score_rule.title,
+            "summary": score_rule.summary,
+            "formula_steps": list(score_rule.formula_steps),
+            "signal_weights": score_rule.signal_weights,
+            "marketing_priority_rules": list(score_rule.marketing_priority_rules),
+            "bucket_rules": list(score_rule.bucket_rules),
+        },
+        "sections": [
+            {
+                "id": section.id,
+                "title": section.title,
+                "business_meaning": section.business_meaning,
+                "how_to_use": section.how_to_use,
+                "scoring_note": section.scoring_note,
+            }
+            for section in sections
+        ],
     }
 
 

@@ -48,6 +48,8 @@ def test_export_public_dashboard_bundle_writes_expected_json(tmp_path: Path) -> 
     assert payload["generated_at"] == "2026-03-18T01:02:03Z"
     assert payload["source_report_dir"] == str(report_dir)
     assert payload["dataset_version"] == "v1"
+    assert payload["help"]["score_rule"]["title"] == "How scoring works"
+    assert payload["help"]["sections"][0]["id"] == "kpi"
     assert payload["kpis"]["high_priority_targets"] == 1
     assert payload["kpis"]["new_keywords"] == 0
     assert payload["target_table"][0]["observed_signals"] == ["autocomplete", "trends_related"]
