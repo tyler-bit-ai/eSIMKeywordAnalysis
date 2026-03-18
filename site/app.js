@@ -371,6 +371,22 @@ function downloadRows(filename, rows) {
   URL.revokeObjectURL(url);
 }
 
+function openHelpDialog() {
+  if (typeof elements.helpDialog.showModal === "function") {
+    elements.helpDialog.showModal();
+    return;
+  }
+  elements.helpDialog.setAttribute("open", "open");
+}
+
+function closeHelpDialog() {
+  if (typeof elements.helpDialog.close === "function") {
+    elements.helpDialog.close();
+    return;
+  }
+  elements.helpDialog.removeAttribute("open");
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -427,10 +443,15 @@ function bindEvents() {
     downloadRows(`snapshot-${state.activeSnapshotTab}.csv`, state.payload?.snapshot_changes?.[state.activeSnapshotTab] || []);
   });
   elements.helpButton.addEventListener("click", () => {
-    elements.helpDialog.showModal();
+    openHelpDialog();
   });
   elements.helpClose.addEventListener("click", () => {
-    elements.helpDialog.close();
+    closeHelpDialog();
+  });
+  elements.helpDialog.addEventListener("click", (event) => {
+    if (event.target === elements.helpDialog) {
+      closeHelpDialog();
+    }
   });
 
   for (const button of elements.snapshotTabs) {
