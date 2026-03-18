@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 
@@ -11,6 +14,9 @@ from keyword_analysis.monitoring import compare_snapshots
 
 
 NOISE_MARKERS = ("reddit", "klook", "health insurance")
+DEFAULT_PUBLISHED_DASHBOARD_DIR = Path("outputs/published_dashboard")
+DEFAULT_PUBLISHED_DASHBOARD_FILENAME = "dashboard_data.json"
+PUBLIC_DASHBOARD_DATASET_VERSION = "v1"
 
 
 @dataclass(frozen=True)
@@ -170,3 +176,127 @@ def build_snapshot_changes(
             "bucket_changes": empty,
         }
     return compare_snapshots(previous_snapshot, current_snapshot)
+
+
+def export_public_dashboard_bundle(
+    report_dir: Path = Path("outputs/reports_korea_focus"),
+    output_dir: Path = DEFAULT_PUBLISHED_DASHBOARD_DIR,
+    previous_snapshot: Path | None = None,
+    current_snapshot: Path | None = None,
+    generated_at: datetime | None = None,
+) -> Path:
+    dataset = load_dashboard_dataset(
+        report_dir=report_dir,
+        previous_snapshot=previous_snapshot,
+        current_snapshot=current_snapshot,
+    )
+    payload = build_public_dashboard_payload(
+        dataset=dataset,
+        source_report_dir=report_dir,
+        previous_snapshot=previous_snapshot,
+        current_snapshot=current_snapshot,
+        generated_at=generated_at,
+    )
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / DEFAULT_PUBLISHED_DASHBOARD_FILENAME
+    output_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    return output_path
+
+
+def build_public_dashboard_payload(
+    dataset: DashboardDataset,
+    source_report_dir: Path,
+    previous_snapshot: Path | None = None,
+    current_snapshot: Path | None = None,
+    generated_at: datetime | None = None,
+) -> dict[str, Any]:
+    timestamp = generated_at or datetime.now(UTC)
+    kpis = _build_public_kpis(dataset)
+    return {
+        "generated_at": timestamp.astimezone(UTC).isoformat().replace("+00:00", "Z"),
+        "source_report_dir": str(source_report_dir),
+        "dataset_version": PUBLIC_DASHBOARD_DATASET_VERSION,
+        "kpis": kpis,
+        "target_table": _serialize_target_table(dataset.korea_marketing_targets),
+        "modifier_summary": _serialize_frame_records(dataset.modifier_summary),
+        "seed_lineage": _serialize_frame_records(dataset.seed_lineage),
+        "signal_summary": _serialize_frame_records(dataset.signal_summary),
+        "snapshot_changes": {
+            "new_keywords": _serialize_frame_records(dataset.snapshot_changes.get("new_keywords", pd.DataFrame())),
+            "disappeared_keywords": _serialize_frame_records(
+                dataset.snapshot_changes.get("disappeared_keywords", pd.DataFrame())
+            ),
+            "rank_changes": _serialize_frame_records(dataset.snapshot_changes.get("rank_changes", pd.DataFrame())),
+            "bucket_changes": _serialize_frame_records(dataset.snapshot_changes.get("bucket_changes", pd.DataFrame())),
+        },
+        "metadata": {
+            "has_previous_snapshot": bool(previous_snapshot),
+            "has_current_snapshot": bool(current_snapshot),
+            "notes": [],
+        },
+    }
+
+
+def _build_public_kpis(dataset: DashboardDataset) -> dict[str, int]:
+    defaults = {
+        "high_priority_targets": 0,
+        "rising_keywords": 0,
+        "new_keywords": 0,
+        "manual_review_terms": 0,
+        "tracked_targets": 0,
+    }
+    if dataset.kpi_frame.empty:
+        return defaults
+
+    source = {
+        key: int(value)
+        for key, value in dataset.kpi_frame.iloc[0].to_dict().items()
+        if key in defaults
+    }
+    source["new_keywords"] = len(dataset.snapshot_changes.get("new_keywords", pd.DataFrame()))
+    return {**defaults, **source}
+
+
+def _serialize_target_table(frame: pd.DataFrame) -> list[dict[str, Any]]:
+    if frame.empty:
+        return []
+
+    records: list[dict[str, Any]] = []
+    for row in frame.to_dict(orient="records"):
+        record = _normalize_record(row)
+        record["observed_signals"] = _split_string_values(record.get("observed_signals"))
+        record["origin_seeds"] = _split_string_values(record.get("origin_seeds"))
+        record["raw_variants"] = _split_string_values(record.get("raw_variants"), delimiter="|")
+        records.append(record)
+    return records
+
+
+def _serialize_frame_records(frame: pd.DataFrame) -> list[dict[str, Any]]:
+    if frame.empty:
+        return []
+    return [_normalize_record(row) for row in frame.to_dict(orient="records")]
+
+
+def _normalize_record(row: dict[str, Any]) -> dict[str, Any]:
+    return {str(key): _normalize_scalar(value) for key, value in row.items()}
+
+
+def _normalize_scalar(value: Any) -> Any:
+    if pd.isna(value):
+        return None
+    if hasattr(value, "item"):
+        return value.item()
+    return value
+
+
+def _split_string_values(raw_value: Any, delimiter: str = ",") -> list[str]:
+    if raw_value in (None, ""):
+        return []
+    return [
+        part.strip()
+        for part in str(raw_value).split(delimiter)
+        if part.strip()
+    ]

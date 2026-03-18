@@ -17,11 +17,13 @@
   - `.codex/config.toml`
   - `.shrimp-data/`
 - Current verified top-level implementation paths also include:
+  - `.github/`
   - `pyproject.toml`
   - `README.md`
   - `config/`
   - `docs/`
   - `src/`
+  - `site/`
   - `outputs/`
 - Re-scan the repository with a recursive file listing before proposing changes that mention `src`, `docs`, `README`, tests, build files, or package managers.
 - Do not describe or rely on any application architecture that is not present on disk.
@@ -48,6 +50,8 @@
 - Keep collection defaults and environment-like knobs under `config/`.
 - Keep planning, methodology, and validation documents under `docs/`.
 - Keep generated artifacts under `outputs/` and avoid treating them as hand-authored source.
+- Keep GitHub Pages static assets under `site/` and treat `site/data/` as deployment-time published data, not as hand-authored business logic.
+- Keep GitHub automation and deployment workflows under `.github/`.
 
 ## Change Workflow
 
@@ -74,6 +78,9 @@
 - When creating any new top-level directory or root-level config file, update `shrimp-rules.md` in the same task.
 - When editing `pyproject.toml`, review `README.md` and `shrimp-rules.md` for dependency or structure drift.
 - When editing research methodology in `docs/`, review whether matching implementation defaults in `config/` or `src/keyword_analysis/` must change too.
+- When changing the public dashboard data contract in `docs/public_dashboard_architecture.md`, review `src/keyword_analysis/dashboard_data.py` and `site/` for schema drift.
+- When changing `site/`, review whether `docs/public_dashboard_architecture.md`, `README.md`, or GitHub Pages deployment files must change in the same task.
+- When changing GitHub Pages deployment behavior under `.github/workflows/`, review `site/`, `src/keyword_analysis/dashboard_data.py`, `.gitignore`, and deployment docs together.
 
 ### Coordination That Is Not Yet Valid
 

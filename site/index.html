@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Korea eSIM Market Signals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Published Market View</p>
+          <h1>Korea eSIM Market Signals</h1>
+          <p class="hero-text">
+            Published from local Google-signal analysis. This site is read-only and meant for sharing the latest curated keyword view.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-card">
+            <span class="meta-label">Dataset</span>
+            <strong id="dataset-version">loading...</strong>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Generated</span>
+            <strong id="generated-at">loading...</strong>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Source</span>
+            <strong id="source-report-dir">loading...</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="content-grid">
+        <section class="panel panel-full">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Filters</p>
+              <h2>Published Target Explorer</h2>
+            </div>
+            <p class="panel-note" id="status-text">Loading published dashboard data...</p>
+          </div>
+          <div class="filter-bar">
+            <label class="filter-control">
+              <span>Search</span>
+              <input id="search-input" type="search" placeholder="keyword, modifier, seed">
+            </label>
+            <label class="filter-control">
+              <span>Priority</span>
+              <select id="priority-filter">
+                <option value="">All</option>
+              </select>
+            </label>
+            <label class="filter-control">
+              <span>Signal</span>
+              <select id="signal-filter">
+                <option value="">All</option>
+              </select>
+            </label>
+            <label class="filter-control checkbox-control">
+              <input id="hide-noisy-filter" type="checkbox">
+              <span>Hide manual review terms</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel panel-full">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Topline</p>
+              <h2>Published KPIs</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="kpi-export" type="button">Download Excel</button>
+            </div>
+          </div>
+          <div class="kpi-grid" id="kpi-grid"></div>
+        </section>
+
+        <section class="panel panel-full">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Target Table</p>
+              <h2>Korea Keyword Comparison</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="target-table-export" type="button">Download Excel</button>
+              <p class="panel-note" id="table-count">0 visible targets</p>
+              <div class="pagination-controls" id="target-table-pagination">
+                <button class="pagination-button" id="target-table-prev" type="button">Prev</button>
+                <span class="pagination-status" id="target-table-page-info">Page 1 / 1</span>
+                <button class="pagination-button" id="target-table-next" type="button">Next</button>
+              </div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Keyword</th>
+                  <th>Modifier</th>
+                  <th>Priority</th>
+                  <th>Score</th>
+                  <th>Bucket</th>
+                  <th>Signals</th>
+                  <th>Seeds</th>
+                </tr>
+              </thead>
+              <tbody id="target-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Modifier View</p>
+              <h2>Modifier Summary</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="modifier-summary-export" type="button">Download Excel</button>
+              <div class="pagination-controls" id="modifier-summary-pagination">
+                <button class="pagination-button" id="modifier-summary-prev" type="button">Prev</button>
+                <span class="pagination-status" id="modifier-summary-page-info">Page 1 / 1</span>
+                <button class="pagination-button" id="modifier-summary-next" type="button">Next</button>
+              </div>
+            </div>
+          </div>
+          <div id="modifier-summary" class="stack-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Seed View</p>
+              <h2>Root Seed Lineage</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="seed-lineage-export" type="button">Download Excel</button>
+            </div>
+          </div>
+          <div id="seed-lineage" class="stack-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Signal View</p>
+              <h2>Signal Summary</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="signal-summary-export" type="button">Download Excel</button>
+            </div>
+          </div>
+          <div id="signal-summary" class="stack-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Change View</p>
+              <h2>Snapshot Delta</h2>
+            </div>
+            <div class="panel-actions">
+              <button class="export-button" id="snapshot-export" type="button">Download Excel</button>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-button active" data-tab="new_keywords" type="button">New</button>
+            <button class="tab-button" data-tab="disappeared_keywords" type="button">Disappeared</button>
+            <button class="tab-button" data-tab="rank_changes" type="button">Rank Changes</button>
+            <button class="tab-button" data-tab="bucket_changes" type="button">Bucket Changes</button>
+          </div>
+          <div id="snapshot-panel" class="stack-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="empty-state-template">
+      <div class="empty-state">No published data available for this view.</div>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

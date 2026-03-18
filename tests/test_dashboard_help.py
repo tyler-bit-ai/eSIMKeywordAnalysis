@@ -92,6 +92,7 @@ class RefreshPipelineTests(unittest.TestCase):
         self.assertEqual(artifacts.cluster_summary.name, "cluster_summary.csv")
         self.assertEqual(artifacts.korea_marketing_targets.name, "korea_marketing_targets.csv")
         self.assertEqual(artifacts.report_summary.name, "report_summary.md")
+        self.assertIsNone(artifacts.published_dashboard_data)
 
 
 if __name__ == "__main__":
