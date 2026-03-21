@@ -34,9 +34,10 @@ body::before {
   pointer-events: none;
   background-image:
     linear-gradient(rgba(28, 35, 26, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 35, 26, 0.03) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 90%);
+    linear-gradient(90deg, rgba(28, 35, 26, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.88) 90%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+  opacity: 0.7;
 }
 
 .page-shell {
@@ -57,9 +58,11 @@ body::before {
 .hero-meta,
 .panel {
   position: relative;
+  isolation: isolate;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: var(--paper);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow);
 }
