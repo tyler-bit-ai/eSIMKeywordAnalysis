@@ -99,6 +99,9 @@ python -c "from pathlib import Path; from keyword_analysis.pipeline import expor
 생성 결과:
 
 - `site/data/dashboard_data.json`
+- `site/data/dashboard_manifest.json` (여러 published dataset을 함께 둘 때)
+
+`dashboard_manifest.json`이 있으면 정적 사이트는 dataset selector를 보여주고, 선택한 dataset JSON만 읽습니다. manifest가 없으면 기존처럼 `dashboard_data.json` 단일 파일만 읽습니다.
 
 정적 사이트를 로컬에서 확인하려면 저장소 루트에서 HTTP 서버를 띄운 뒤 `site/`를 브라우저로 열면 됩니다.
 
@@ -107,6 +110,7 @@ python -c "from pathlib import Path; from keyword_analysis.pipeline import expor
 - Seed export는 autocomplete만이 아니라 해당 seed에서 실행된 전체 collector 결과를 집계합니다.
 - autocomplete 확장은 `config/collection_profiles.yaml`의 `autocomplete_expansion` 설정을 따릅니다.
 - `related_search`는 best-effort 수집이며, selector miss 또는 anti-bot 응답은 실패 로그로 기록됩니다.
+- SQLite의 `collection_runs`는 실행 이력을 유지하고, `observations`는 동일 payload가 반복 적재될 때 중복 row가 쌓이지 않도록 deduplicate 됩니다.
 - 현재 테스트는 export aggregation, query expansion, config defaults, related-search failure handling 등을 포함합니다.
 
 ## 배포 및 공개 시 주의사항

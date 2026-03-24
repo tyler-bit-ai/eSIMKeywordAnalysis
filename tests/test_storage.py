@@ -1,9 +1,10 @@
 from __future__ import annotations
 
 import csv
+import sqlite3
 from pathlib import Path
 
-from keyword_analysis.storage import Observation, Storage
+from keyword_analysis.storage import CollectionRun, Observation, Storage
 
 
 def _make_observation(run_id: str, signal_type: str, rank: int, raw_text: str) -> Observation:
@@ -60,3 +61,47 @@ def test_export_runs_to_csv_aggregates_multiple_runs(tmp_path: Path) -> None:
 
     assert [row["signal_type"] for row in rows] == ["autocomplete", "trends_related"]
     assert [row["run_id"] for row in rows] == ["run-a", "run-b"]
+
+
+def test_insert_observations_ignores_duplicate_payloads_across_runs(tmp_path: Path) -> None:
+    storage = Storage(tmp_path / "keyword_analysis.sqlite3")
+    storage.insert_run(
+        CollectionRun(
+            run_id="run-a",
+            started_at_utc="2026-03-17T00:00:00+00:00",
+            collector_name="autocomplete",
+            profile_name="default",
+            locale_gl="us",
+            language_hl="en",
+            login_state="logged_out",
+            browser_profile="default_desktop",
+            device_class="desktop",
+            status="completed",
+        )
+    )
+    storage.insert_run(
+        CollectionRun(
+            run_id="run-b",
+            started_at_utc="2026-03-17T00:05:00+00:00",
+            collector_name="autocomplete",
+            profile_name="default",
+            locale_gl="us",
+            language_hl="en",
+            login_state="logged_out",
+            browser_profile="default_desktop",
+            device_class="desktop",
+            status="completed",
+        )
+    )
+
+    storage.insert_observations([
+        _make_observation("run-a", "autocomplete", 1, "alpha"),
+        _make_observation("run-b", "autocomplete", 1, "alpha"),
+    ])
+
+    with sqlite3.connect(tmp_path / "keyword_analysis.sqlite3") as connection:
+        observation_count = connection.execute("SELECT COUNT(*) FROM observations").fetchone()[0]
+        run_count = connection.execute("SELECT COUNT(*) FROM collection_runs").fetchone()[0]
+
+    assert observation_count == 1
+    assert run_count == 2

@@ -24,10 +24,12 @@
         </div>
         <div class="hero-meta">
           <button class="help-button" id="help-button" type="button">Help</button>
-          <div class="meta-card">
+          <label class="meta-card meta-select-card" for="dataset-select">
             <span class="meta-label">Dataset</span>
-            <strong id="dataset-version">loading...</strong>
-          </div>
+            <select id="dataset-select">
+              <option value="">Latest published dataset</option>
+            </select>
+          </label>
           <div class="meta-card">
             <span class="meta-label">Generated</span>
             <strong id="generated-at">loading...</strong>
@@ -70,6 +72,7 @@
               <span>Hide manual review terms</span>
             </label>
           </div>
+          <p class="panel-note" id="dataset-summary">Single published dataset mode.</p>
         </section>
 
         <section class="panel panel-full">

@@ -111,6 +111,47 @@ class Storage:
                 );
                 """
             )
+            connection.execute(
+                """
+                DELETE FROM observations
+                WHERE id NOT IN (
+                    SELECT MIN(id)
+                    FROM observations
+                    GROUP BY
+                        seed_keyword,
+                        query_keyword,
+                        signal_type,
+                        locale_gl,
+                        language_hl,
+                        login_state,
+                        browser_profile,
+                        device_class,
+                        rank_position,
+                        raw_text,
+                        source_url,
+                        collector_version
+                )
+                """
+            )
+            connection.execute(
+                """
+                CREATE UNIQUE INDEX IF NOT EXISTS idx_observations_dedup
+                ON observations (
+                    seed_keyword,
+                    query_keyword,
+                    signal_type,
+                    locale_gl,
+                    language_hl,
+                    login_state,
+                    browser_profile,
+                    device_class,
+                    rank_position,
+                    raw_text,
+                    source_url,
+                    collector_version
+                )
+                """
+            )
 
     def insert_run(self, run: CollectionRun) -> None:
         payload = asdict(run)
@@ -131,7 +172,7 @@ class Storage:
         placeholders = ", ".join(f":{key}" for key in rows[0])
         with self._connect() as connection:
             connection.executemany(
-                f"INSERT INTO observations ({columns}) VALUES ({placeholders})",
+                f"INSERT OR IGNORE INTO observations ({columns}) VALUES ({placeholders})",
                 rows,
             )
 

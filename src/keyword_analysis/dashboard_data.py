@@ -17,6 +17,7 @@ from keyword_analysis.monitoring import compare_snapshots
 NOISE_MARKERS = ("reddit", "klook", "health insurance")
 DEFAULT_PUBLISHED_DASHBOARD_DIR = Path("outputs/published_dashboard")
 DEFAULT_PUBLISHED_DASHBOARD_FILENAME = "dashboard_data.json"
+DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME = "dashboard_manifest.json"
 PUBLIC_DASHBOARD_DATASET_VERSION = "v1"
 
 
@@ -31,6 +32,16 @@ class DashboardDataset:
     signal_summary: pd.DataFrame
     noisy_terms: pd.DataFrame
     snapshot_changes: dict[str, pd.DataFrame]
+
+
+@dataclass(frozen=True)
+class PublishedDashboardSpec:
+    dataset_id: str
+    label: str
+    report_dir: Path
+    output_filename: str | None = None
+    previous_snapshot: Path | None = None
+    current_snapshot: Path | None = None
 
 
 def load_dashboard_dataset(
@@ -186,25 +197,88 @@ def export_public_dashboard_bundle(
     current_snapshot: Path | None = None,
     generated_at: datetime | None = None,
 ) -> Path:
-    dataset = load_dashboard_dataset(
+    payload = _build_dashboard_payload(
         report_dir=report_dir,
-        previous_snapshot=previous_snapshot,
-        current_snapshot=current_snapshot,
-    )
-    payload = build_public_dashboard_payload(
-        dataset=dataset,
-        source_report_dir=report_dir,
         previous_snapshot=previous_snapshot,
         current_snapshot=current_snapshot,
         generated_at=generated_at,
     )
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / DEFAULT_PUBLISHED_DASHBOARD_FILENAME
-    output_path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
+    _write_dashboard_payload(output_path, payload)
+    return output_path
+
+
+def export_public_dashboard_manifest(
+    dataset_specs: list[PublishedDashboardSpec],
+    output_dir: Path = DEFAULT_PUBLISHED_DASHBOARD_DIR,
+    generated_at: datetime | None = None,
+    default_dataset_id: str | None = None,
+) -> Path:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = generated_at or datetime.now(UTC)
+    if not dataset_specs:
+        manifest_path = output_dir / DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME
+        manifest_path.write_text(
+            json.dumps(
+                {
+                    "generated_at": timestamp.astimezone(UTC).isoformat().replace("+00:00", "Z"),
+                    "default_dataset_id": None,
+                    "datasets": [],
+                },
+                ensure_ascii=False,
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
+        return manifest_path
+
+    default_id = default_dataset_id or dataset_specs[0].dataset_id
+    manifest_entries: list[dict[str, Any]] = []
+    default_payload: dict[str, Any] | None = None
+
+    for spec in dataset_specs:
+        filename = spec.output_filename or f"{spec.dataset_id}.json"
+        payload = _build_dashboard_payload(
+            report_dir=spec.report_dir,
+            previous_snapshot=spec.previous_snapshot,
+            current_snapshot=spec.current_snapshot,
+            generated_at=timestamp,
+        )
+        output_path = output_dir / filename
+        _write_dashboard_payload(output_path, payload)
+        if spec.dataset_id == default_id:
+            default_payload = payload
+        manifest_entries.append(
+            {
+                "dataset_id": spec.dataset_id,
+                "label": spec.label,
+                "path": output_path.name,
+                "generated_at": payload["generated_at"],
+                "source_report_dir": str(spec.report_dir),
+                "dataset_version": payload["dataset_version"],
+                "has_previous_snapshot": payload["metadata"]["has_previous_snapshot"],
+                "has_current_snapshot": payload["metadata"]["has_current_snapshot"],
+            }
+        )
+
+    if default_payload is not None:
+        _write_dashboard_payload(output_dir / DEFAULT_PUBLISHED_DASHBOARD_FILENAME, default_payload)
+
+    manifest_path = output_dir / DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME
+    manifest_path.write_text(
+        json.dumps(
+            {
+                "generated_at": timestamp.astimezone(UTC).isoformat().replace("+00:00", "Z"),
+                "default_dataset_id": default_id,
+                "datasets": manifest_entries,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
         encoding="utf-8",
     )
-    return output_path
+    return manifest_path
 
 
 def build_public_dashboard_payload(
@@ -240,6 +314,33 @@ def build_public_dashboard_payload(
             "notes": [],
         },
     }
+
+
+def _build_dashboard_payload(
+    report_dir: Path,
+    previous_snapshot: Path | None,
+    current_snapshot: Path | None,
+    generated_at: datetime | None,
+) -> dict[str, Any]:
+    dataset = load_dashboard_dataset(
+        report_dir=report_dir,
+        previous_snapshot=previous_snapshot,
+        current_snapshot=current_snapshot,
+    )
+    return build_public_dashboard_payload(
+        dataset=dataset,
+        source_report_dir=report_dir,
+        previous_snapshot=previous_snapshot,
+        current_snapshot=current_snapshot,
+        generated_at=generated_at,
+    )
+
+
+def _write_dashboard_payload(output_path: Path, payload: dict[str, Any]) -> None:
+    output_path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 def _serialize_help_payload() -> dict[str, Any]:

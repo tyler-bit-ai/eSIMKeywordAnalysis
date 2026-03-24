@@ -92,10 +92,12 @@ The following local-only features must not be carried into the public dashboard:
   - `outputs/published_dashboard/`
 - Recommended primary data file:
   - `outputs/published_dashboard/dashboard_data.json`
+- Recommended multi-dataset manifest file:
+  - `outputs/published_dashboard/dashboard_manifest.json`
 
 ### Top-Level Schema
 
-The public dashboard reads one JSON document with this top-level structure:
+Single-dataset mode reads one JSON document with this top-level structure:
 
 ```json
 {
@@ -126,6 +128,36 @@ The public dashboard reads one JSON document with this top-level structure:
   }
 }
 ```
+
+### Multi-Dataset Manifest
+
+When multiple published datasets must be retained side by side, the static site may read a manifest first and then lazy-load the selected dataset JSON.
+
+```json
+{
+  "generated_at": "2026-03-24T00:00:00Z",
+  "default_dataset_id": "current",
+  "datasets": [
+    {
+      "dataset_id": "current",
+      "label": "Current Crawl",
+      "path": "current.json",
+      "generated_at": "2026-03-24T00:00:00Z",
+      "source_report_dir": "outputs/reports_korea_focus",
+      "dataset_version": "v1",
+      "has_previous_snapshot": false,
+      "has_current_snapshot": false
+    }
+  ]
+}
+```
+
+The static site should:
+
+- try `dashboard_manifest.json` first
+- populate a dataset selector from `datasets`
+- fetch only the selected dataset JSON
+- fall back to `dashboard_data.json` when the manifest is missing
 
 ## Field Definitions
 
@@ -244,3 +276,4 @@ Each key maps to an array of row objects derived from `compare_snapshots(...)`.
 - Python remains responsible for collection, scoring, report export, and public JSON generation.
 - The public dashboard frontend remains responsible only for rendering, filter state, and client-side sorting.
 - The public site consumes published files only and does not import Python modules at runtime.
+- SQLite persistence keeps `collection_runs` history per execution and should deduplicate identical `observations` payloads so repeated crawls do not inflate reporting outputs.

@@ -1,7 +1,11 @@
 const DEFAULT_DATA_PATH = "./data/dashboard_data.json";
+const DEFAULT_MANIFEST_PATH = "./data/dashboard_manifest.json";
 
 const state = {
+  manifest: null,
+  manifestUrl: null,
   payload: null,
+  activeDatasetId: "",
   activeSnapshotTab: "new_keywords",
   targetTablePage: 1,
   modifierSummaryPage: 1,
@@ -9,7 +13,8 @@ const state = {
 };
 
 const elements = {
-  datasetVersion: document.querySelector("#dataset-version"),
+  datasetSelect: document.querySelector("#dataset-select"),
+  datasetSummary: document.querySelector("#dataset-summary"),
   generatedAt: document.querySelector("#generated-at"),
   sourceReportDir: document.querySelector("#source-report-dir"),
   helpButton: document.querySelector("#help-button"),
@@ -50,20 +55,75 @@ const elements = {
   emptyStateTemplate: document.querySelector("#empty-state-template"),
 };
 
-function getDataPath() {
-  const url = new URL(window.location.href);
-  return url.searchParams.get("data") || DEFAULT_DATA_PATH;
+function getUrl() {
+  return new URL(window.location.href);
 }
 
-async function loadPayload() {
-  const response = await fetch(getDataPath());
+function getDataPath() {
+  return getUrl().searchParams.get("data") || DEFAULT_DATA_PATH;
+}
+
+function getManifestPath() {
+  return getUrl().searchParams.get("manifest") || DEFAULT_MANIFEST_PATH;
+}
+
+function getRequestedDatasetId() {
+  return getUrl().searchParams.get("dataset") || "";
+}
+
+function shouldUseDirectDataPath() {
+  const url = getUrl();
+  return url.searchParams.has("data") && !url.searchParams.has("manifest") && !url.searchParams.has("dataset");
+}
+
+async function fetchJson(path) {
+  const response = await fetch(path);
   if (!response.ok) {
     throw new Error(`Failed to load published data: ${response.status}`);
   }
   return response.json();
 }
 
+async function loadPayload(path = getDataPath()) {
+  return fetchJson(path);
+}
+
+async function loadManifest() {
+  if (shouldUseDirectDataPath()) {
+    return null;
+  }
+
+  const manifestUrl = new URL(getManifestPath(), window.location.href).toString();
+  try {
+    const manifest = await fetchJson(manifestUrl);
+    if (!Array.isArray(manifest.datasets) || !manifest.datasets.length) {
+      return null;
+    }
+    state.manifestUrl = manifestUrl;
+    return manifest;
+  } catch (error) {
+    return null;
+  }
+}
+
+function resetFilterOptions() {
+  elements.searchInput.value = "";
+  elements.priorityFilter.innerHTML = '<option value="">All</option>';
+  elements.signalFilter.innerHTML = '<option value="">All</option>';
+  elements.hideNoisyFilter.checked = false;
+}
+
+function resetPaging() {
+  state.targetTablePage = 1;
+  state.modifierSummaryPage = 1;
+  state.activeSnapshotTab = "new_keywords";
+  for (const button of elements.snapshotTabs) {
+    button.classList.toggle("active", button.dataset.tab === state.activeSnapshotTab);
+  }
+}
+
 function initFilters(payload) {
+  resetFilterOptions();
   const priorities = [...new Set((payload.target_table || []).map((row) => row.marketing_priority).filter(Boolean))];
   const signals = [...new Set((payload.target_table || []).flatMap((row) => row.observed_signals || []))];
 
@@ -82,10 +142,12 @@ function initFilters(payload) {
   }
 }
 
-function renderMeta(payload) {
-  elements.datasetVersion.textContent = payload.dataset_version || "unknown";
-  elements.generatedAt.textContent = payload.generated_at || "unknown";
-  elements.sourceReportDir.textContent = payload.source_report_dir || "unknown";
+function renderMeta(payload, datasetEntry) {
+  elements.generatedAt.textContent = payload.generated_at || datasetEntry?.generated_at || "unknown";
+  elements.sourceReportDir.textContent = payload.source_report_dir || datasetEntry?.source_report_dir || "unknown";
+  elements.datasetSummary.textContent = datasetEntry
+    ? `${datasetEntry.label} selected from ${state.manifest?.datasets?.length || 1} published datasets.`
+    : "Single published dataset mode.";
 }
 
 function renderHelp(payload) {
@@ -396,6 +458,59 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
+function populateDatasetSelector(manifest) {
+  elements.datasetSelect.innerHTML = "";
+  const sorted = [...manifest.datasets].sort((left, right) => {
+    return (right.generated_at || "").localeCompare(left.generated_at || "");
+  });
+
+  for (const entry of sorted) {
+    const option = document.createElement("option");
+    option.value = entry.dataset_id;
+    option.textContent = entry.label;
+    elements.datasetSelect.append(option);
+  }
+}
+
+function getActiveDatasetEntry() {
+  return state.manifest?.datasets?.find((entry) => entry.dataset_id === state.activeDatasetId) || null;
+}
+
+function resolveDatasetPath(entry) {
+  if (!state.manifestUrl) {
+    return entry.path;
+  }
+  return new URL(entry.path, state.manifestUrl).toString();
+}
+
+async function selectDataset(datasetId) {
+  const entry = state.manifest?.datasets?.find((candidate) => candidate.dataset_id === datasetId);
+  if (!entry) {
+    throw new Error(`Unknown dataset: ${datasetId}`);
+  }
+
+  elements.statusText.textContent = `Loading ${entry.label}...`;
+  const payload = await loadPayload(resolveDatasetPath(entry));
+  state.activeDatasetId = entry.dataset_id;
+  elements.datasetSelect.value = entry.dataset_id;
+  applyPayload(payload, entry);
+  elements.statusText.textContent = `${entry.label} loaded.`;
+}
+
+function applyPayload(payload, datasetEntry = null) {
+  state.payload = payload;
+  resetPaging();
+  initFilters(payload);
+  renderMeta(payload, datasetEntry);
+  renderHelp(payload);
+  renderKpis(payload);
+  renderTargetTable(getFilteredTargets());
+  renderModifierSummary(payload);
+  renderSeedLineage(payload);
+  renderSignalSummary(payload);
+  renderSnapshotPanel();
+}
+
 function bindEvents() {
   const rerenderTable = ({ resetPage = false } = {}) => {
     if (resetPage) {
@@ -404,6 +519,12 @@ function bindEvents() {
     renderTargetTable(getFilteredTargets());
   };
 
+  elements.datasetSelect.addEventListener("change", async () => {
+    if (!state.manifest || !elements.datasetSelect.value) {
+      return;
+    }
+    await selectDataset(elements.datasetSelect.value);
+  });
   elements.searchInput.addEventListener("input", () => rerenderTable({ resetPage: true }));
   elements.priorityFilter.addEventListener("change", () => rerenderTable({ resetPage: true }));
   elements.signalFilter.addEventListener("change", () => rerenderTable({ resetPage: true }));
@@ -469,23 +590,25 @@ async function main() {
   bindEvents();
 
   try {
+    const manifest = await loadManifest();
+    if (manifest) {
+      state.manifest = manifest;
+      populateDatasetSelector(manifest);
+      const requestedDatasetId = getRequestedDatasetId();
+      const defaultDatasetId = requestedDatasetId || manifest.default_dataset_id || manifest.datasets[0].dataset_id;
+      await selectDataset(defaultDatasetId);
+      return;
+    }
+
     const payload = await loadPayload();
-    state.payload = payload;
-    renderMeta(payload);
-    renderHelp(payload);
-    initFilters(payload);
-    renderKpis(payload);
-    renderTargetTable(getFilteredTargets());
-    renderModifierSummary(payload);
-    renderSeedLineage(payload);
-    renderSignalSummary(payload);
-    renderSnapshotPanel();
+    applyPayload(payload);
+    elements.datasetSelect.innerHTML = '<option value="">Single dataset</option>';
     elements.statusText.textContent = "Published dashboard data loaded.";
   } catch (error) {
     elements.statusText.textContent = error.message;
     elements.generatedAt.textContent = "unavailable";
-    elements.datasetVersion.textContent = "unavailable";
     elements.sourceReportDir.textContent = "unavailable";
+    elements.datasetSummary.textContent = "No published dataset available.";
     renderHelp({});
     renderKpis({ kpis: {} });
     renderTargetTable([]);

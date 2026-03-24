@@ -48,7 +48,7 @@ body::before {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1.72fr 0.94fr;
   gap: 18px;
   align-items: end;
   margin-bottom: 18px;
@@ -68,7 +68,7 @@ body::before {
 }
 
 .hero-copy {
-  padding: 22px;
+  padding: 28px 24px;
   overflow: hidden;
 }
 
@@ -114,8 +114,8 @@ body::before {
 
 .hero-meta {
   display: grid;
-  gap: 10px;
-  padding: 14px;
+  gap: 8px;
+  padding: 12px;
 }
 
 .help-button {
@@ -124,9 +124,9 @@ body::before {
   background: rgba(255, 255, 255, 0.72);
   color: var(--text);
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: 7px 11px;
   font: inherit;
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -141,7 +141,12 @@ body::before {
 }
 
 .meta-card {
-  padding: 13px 15px;
+  padding: 11px 14px;
+}
+
+.meta-select-card {
+  display: grid;
+  gap: 4px;
 }
 
 .meta-label,
@@ -183,6 +188,10 @@ body::before {
   font-size: 1.35rem;
 }
 
+#dataset-summary {
+  margin-top: 12px;
+}
+
 .filter-bar {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -204,6 +213,18 @@ body::before {
   background: #fffdf8;
   color: var(--text);
   font: inherit;
+}
+
+#dataset-select {
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 7px 10px;
+  background: #fffdf8;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.74rem;
 }
 
 .checkbox-control {
