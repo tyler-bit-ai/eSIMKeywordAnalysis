@@ -82,7 +82,7 @@ streamlit run src/keyword_analysis/dashboard.py
 
 ## 실행 화면 예시
 
-아래 이미지는 현재 프로젝트의 Streamlit 대시보드를 실행해 캡처한 예시입니다.
+아래 이미지는 2026-03-24 기준 현재 프로젝트를 실행한 Streamlit 대시보드 화면입니다.
 
 ![Korea eSIM Keyword Dashboard 실행 예시](docs/images/dashboard-example.png)
 
