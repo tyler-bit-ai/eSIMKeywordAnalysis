@@ -100,8 +100,9 @@ python -c "from pathlib import Path; from keyword_analysis.pipeline import expor
 
 - `site/data/dashboard_data.json`
 - `site/data/dashboard_manifest.json` (여러 published dataset을 함께 둘 때)
+- `site/data/snapshots/*.json` (실행 시점별 published dataset 보관)
 
-`dashboard_manifest.json`이 있으면 정적 사이트는 dataset selector를 보여주고, 선택한 dataset JSON만 읽습니다. manifest가 없으면 기존처럼 `dashboard_data.json` 단일 파일만 읽습니다.
+현재 export/pipeline은 최신 결과를 `dashboard_data.json`으로 갱신하면서, 동시에 `site/data/snapshots/` 아래에 시점별 JSON 스냅샷을 누적 저장합니다. `dashboard_manifest.json`이 있으면 정적 사이트는 dataset selector를 보여주고, 사용자가 날짜별 snapshot dataset을 선택할 수 있습니다. manifest가 없으면 기존처럼 `dashboard_data.json` 단일 파일만 읽습니다.
 
 정적 사이트를 로컬에서 확인하려면 저장소 루트에서 HTTP 서버를 띄운 뒤 `site/`를 브라우저로 열면 됩니다.
 

@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-04-01T02:11:49.393043Z",
+  "default_dataset_id": "snapshot-20260401T021149Z",
+  "datasets": [
+    {
+      "dataset_id": "snapshot-20260401T021149Z",
+      "label": "Snapshot 2026-04-01 02:11:49 UTC",
+      "path": "snapshots/snapshot-20260401T021149Z.json",
+      "generated_at": "2026-04-01T02:11:49.393043Z",
+      "source_report_dir": "outputs\\reports_korea_focus",
+      "dataset_version": "v1",
+      "has_previous_snapshot": false,
+      "has_current_snapshot": false
+    }
+  ]
+}

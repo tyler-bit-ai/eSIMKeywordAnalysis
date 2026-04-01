@@ -8,7 +8,7 @@ from pathlib import Path
 from keyword_analysis.collect import collect_korea_focus_seed_set
 from keyword_analysis.dashboard_data import (
     DEFAULT_PUBLISHED_DASHBOARD_DIR,
-    export_public_dashboard_bundle,
+    publish_dashboard_snapshot_bundle,
 )
 from keyword_analysis.intent_classifier import classify_keyword
 from keyword_analysis.reporting import export_reports
@@ -36,6 +36,8 @@ class RefreshArtifacts:
     korea_marketing_targets: Path
     report_summary: Path
     published_dashboard_data: Path | None
+    published_dashboard_manifest: Path | None
+    published_dashboard_snapshot: Path | None
     normalized_keyword_count: int
     intent_assignment_count: int
     failure_log_path: Path
@@ -61,11 +63,16 @@ def refresh_korea_dashboard_dataset(
         normalized_keyword_count, intent_assignment_count = rebuild_keyword_metadata(storage)
         report_paths = export_reports(output_dir=report_dir, database_path=database_path)
         published_dashboard_data = None
+        published_dashboard_manifest = None
+        published_dashboard_snapshot = None
         if published_report_dir:
-            published_dashboard_data = export_public_dashboard_bundle(
+            publish_artifacts = publish_dashboard_snapshot_bundle(
                 report_dir=report_dir,
                 output_dir=published_report_dir,
             )
+            published_dashboard_data = publish_artifacts.dashboard_data_path
+            published_dashboard_manifest = publish_artifacts.manifest_path
+            published_dashboard_snapshot = publish_artifacts.snapshot_path
     except Exception as error:
         raise PipelineError(str(error)) from error
 
@@ -78,6 +85,8 @@ def refresh_korea_dashboard_dataset(
         korea_marketing_targets=report_paths["korea_marketing_targets"],
         report_summary=report_paths["report_summary"],
         published_dashboard_data=published_dashboard_data,
+        published_dashboard_manifest=published_dashboard_manifest,
+        published_dashboard_snapshot=published_dashboard_snapshot,
         normalized_keyword_count=normalized_keyword_count,
         intent_assignment_count=intent_assignment_count,
         failure_log_path=DEFAULT_FAILURE_LOG_PATH,
@@ -104,9 +113,10 @@ def export_korea_public_dashboard(
     previous_snapshot: Path | None = None,
     current_snapshot: Path | None = None,
 ) -> Path:
-    return export_public_dashboard_bundle(
+    artifacts = publish_dashboard_snapshot_bundle(
         report_dir=report_dir,
         output_dir=output_dir,
         previous_snapshot=previous_snapshot,
         current_snapshot=current_snapshot,
     )
+    return artifacts.dashboard_data_path

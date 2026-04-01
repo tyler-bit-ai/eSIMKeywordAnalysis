@@ -18,6 +18,7 @@ NOISE_MARKERS = ("reddit", "klook", "health insurance")
 DEFAULT_PUBLISHED_DASHBOARD_DIR = Path("outputs/published_dashboard")
 DEFAULT_PUBLISHED_DASHBOARD_FILENAME = "dashboard_data.json"
 DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME = "dashboard_manifest.json"
+DEFAULT_PUBLISHED_SNAPSHOT_DIRNAME = "snapshots"
 PUBLIC_DASHBOARD_DATASET_VERSION = "v1"
 
 
@@ -42,6 +43,14 @@ class PublishedDashboardSpec:
     output_filename: str | None = None
     previous_snapshot: Path | None = None
     current_snapshot: Path | None = None
+
+
+@dataclass(frozen=True)
+class PublishedDashboardArtifacts:
+    dashboard_data_path: Path
+    manifest_path: Path
+    snapshot_path: Path
+    dataset_id: str
 
 
 def load_dashboard_dataset(
@@ -253,7 +262,7 @@ def export_public_dashboard_manifest(
             {
                 "dataset_id": spec.dataset_id,
                 "label": spec.label,
-                "path": output_path.name,
+                "path": str(Path(filename).as_posix()),
                 "generated_at": payload["generated_at"],
                 "source_report_dir": str(spec.report_dir),
                 "dataset_version": payload["dataset_version"],
@@ -279,6 +288,57 @@ def export_public_dashboard_manifest(
         encoding="utf-8",
     )
     return manifest_path
+
+
+def publish_dashboard_snapshot_bundle(
+    report_dir: Path = Path("outputs/reports_korea_focus"),
+    output_dir: Path = DEFAULT_PUBLISHED_DASHBOARD_DIR,
+    previous_snapshot: Path | None = None,
+    current_snapshot: Path | None = None,
+    generated_at: datetime | None = None,
+) -> PublishedDashboardArtifacts:
+    timestamp = (generated_at or datetime.now(UTC)).astimezone(UTC)
+    snapshot_dir = output_dir / DEFAULT_PUBLISHED_SNAPSHOT_DIRNAME
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+
+    dataset_id = _build_snapshot_dataset_id(timestamp)
+    snapshot_filename = f"{dataset_id}.json"
+    snapshot_path = snapshot_dir / snapshot_filename
+
+    payload = _build_dashboard_payload(
+        report_dir=report_dir,
+        previous_snapshot=previous_snapshot,
+        current_snapshot=current_snapshot,
+        generated_at=timestamp,
+    )
+    _write_dashboard_payload(snapshot_path, payload)
+
+    dataset_specs = list(_load_existing_snapshot_specs(output_dir))
+    dataset_specs = [spec for spec in dataset_specs if spec.dataset_id != dataset_id]
+    dataset_specs.append(
+        PublishedDashboardSpec(
+            dataset_id=dataset_id,
+            label=_build_snapshot_label(timestamp),
+            report_dir=report_dir,
+            output_filename=str(Path(DEFAULT_PUBLISHED_SNAPSHOT_DIRNAME) / snapshot_filename),
+            previous_snapshot=previous_snapshot,
+            current_snapshot=current_snapshot,
+        )
+    )
+    dataset_specs.sort(key=lambda spec: spec.dataset_id, reverse=True)
+
+    manifest_path = export_public_dashboard_manifest(
+        dataset_specs=dataset_specs,
+        output_dir=output_dir,
+        generated_at=timestamp,
+        default_dataset_id=dataset_id,
+    )
+    return PublishedDashboardArtifacts(
+        dashboard_data_path=output_dir / DEFAULT_PUBLISHED_DASHBOARD_FILENAME,
+        manifest_path=manifest_path,
+        snapshot_path=snapshot_path,
+        dataset_id=dataset_id,
+    )
 
 
 def build_public_dashboard_payload(
@@ -314,6 +374,36 @@ def build_public_dashboard_payload(
             "notes": [],
         },
     }
+
+
+def _build_snapshot_dataset_id(timestamp: datetime) -> str:
+    return f"snapshot-{timestamp.strftime('%Y%m%dT%H%M%SZ')}"
+
+
+def _build_snapshot_label(timestamp: datetime) -> str:
+    return f"Snapshot {timestamp.strftime('%Y-%m-%d %H:%M:%S UTC')}"
+
+
+def _load_existing_snapshot_specs(output_dir: Path) -> list[PublishedDashboardSpec]:
+    manifest_path = output_dir / DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME
+    if not manifest_path.exists():
+        return []
+
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    dataset_specs: list[PublishedDashboardSpec] = []
+    for entry in manifest.get("datasets", []):
+        source_report_dir = entry.get("source_report_dir")
+        if not source_report_dir:
+            continue
+        dataset_specs.append(
+            PublishedDashboardSpec(
+                dataset_id=str(entry["dataset_id"]),
+                label=str(entry.get("label") or entry["dataset_id"]),
+                report_dir=Path(source_report_dir),
+                output_filename=str(entry.get("path") or f"{entry['dataset_id']}.json"),
+            )
+        )
+    return dataset_specs
 
 
 def _build_dashboard_payload(

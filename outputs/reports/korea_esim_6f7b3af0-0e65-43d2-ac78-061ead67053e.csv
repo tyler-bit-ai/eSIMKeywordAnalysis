@@ -1,0 +1,6 @@
+id,run_id,observed_at_utc,seed_keyword,query_keyword,signal_type,locale_gl,language_hl,login_state,browser_profile,device_class,rank_position,raw_text,source_url,collector_version,notes
+1841,e7485fe3-8160-439d-a933-2eab4052b651,2026-04-01T01:49:33.388894+00:00,korea esim,korea esim,trends_related,us,en,logged_out,pytrends,desktop,1,south korea esim,https://trends.google.com/trends/,0.1.0,top
+1843,e7485fe3-8160-439d-a933-2eab4052b651,2026-04-01T01:49:33.388894+00:00,korea esim,korea esim,trends_related,us,en,logged_out,pytrends,desktop,3,esim iphone,https://trends.google.com/trends/,0.1.0,top
+1844,e7485fe3-8160-439d-a933-2eab4052b651,2026-04-01T01:49:33.388894+00:00,korea esim,korea esim,trends_related,us,en,logged_out,pytrends,desktop,4,esim card korea,https://trends.google.com/trends/,0.1.0,top
+1845,e7485fe3-8160-439d-a933-2eab4052b651,2026-04-01T01:49:33.388894+00:00,korea esim,korea esim,trends_related,us,en,logged_out,pytrends,desktop,5,airalo esim,https://trends.google.com/trends/,0.1.0,top
+1846,e7485fe3-8160-439d-a933-2eab4052b651,2026-04-01T01:49:33.388894+00:00,korea esim,korea esim,trends_related,us,en,logged_out,pytrends,desktop,6,airalo,https://trends.google.com/trends/,0.1.0,top

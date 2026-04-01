@@ -8,6 +8,7 @@ from keyword_analysis.dashboard_data import (
     PublishedDashboardSpec,
     export_public_dashboard_bundle,
     export_public_dashboard_manifest,
+    publish_dashboard_snapshot_bundle,
 )
 
 
@@ -157,3 +158,53 @@ def test_export_public_dashboard_manifest_writes_manifest_and_default_bundle(tmp
     assert manifest["datasets"][1]["source_report_dir"] == str(baseline_report_dir)
     assert default_payload["target_table"][0]["canonical_keyword"] == "best esim for korea"
     assert baseline_payload["target_table"][0]["canonical_keyword"] == "best esim for korea"
+
+
+def test_publish_dashboard_snapshot_bundle_appends_snapshot_and_manifest(tmp_path: Path) -> None:
+    report_dir = tmp_path / "reports_korea_focus"
+    output_dir = tmp_path / "site_data"
+    report_dir.mkdir()
+
+    (report_dir / "ranked_keywords.csv").write_text(
+        "\n".join([
+            "canonical_keyword,priority_score,keyword_bucket",
+            "korea esim,15,core_stable",
+        ]),
+        encoding="utf-8",
+    )
+    (report_dir / "cluster_summary.csv").write_text(
+        "\n".join([
+            "keyword_family,keyword_bucket,keyword_count,avg_priority_score",
+            "korea esim,core_stable,1,15",
+        ]),
+        encoding="utf-8",
+    )
+    (report_dir / "korea_marketing_targets.csv").write_text(
+        "\n".join([
+            "canonical_keyword,follow_on_modifier,marketing_priority,priority_score,keyword_bucket,observed_signals,origin_seeds,raw_variants,target_reason",
+            "korea esim,root,high,15,core_stable,autocomplete,korea esim,korea esim,Observed from tests",
+        ]),
+        encoding="utf-8",
+    )
+
+    first = publish_dashboard_snapshot_bundle(
+        report_dir=report_dir,
+        output_dir=output_dir,
+        generated_at=datetime(2026, 4, 1, 1, 2, 3, tzinfo=UTC),
+    )
+    second = publish_dashboard_snapshot_bundle(
+        report_dir=report_dir,
+        output_dir=output_dir,
+        generated_at=datetime(2026, 4, 2, 4, 5, 6, tzinfo=UTC),
+    )
+
+    manifest = json.loads(first.manifest_path.read_text(encoding="utf-8"))
+    latest_payload = json.loads(first.dashboard_data_path.read_text(encoding="utf-8"))
+
+    assert first.snapshot_path.name == "snapshot-20260401T010203Z.json"
+    assert second.snapshot_path.name == "snapshot-20260402T040506Z.json"
+    assert manifest["default_dataset_id"] == "snapshot-20260402T040506Z"
+    assert len(manifest["datasets"]) == 2
+    assert manifest["datasets"][0]["path"] == "snapshots/snapshot-20260402T040506Z.json"
+    assert manifest["datasets"][1]["path"] == "snapshots/snapshot-20260401T010203Z.json"
+    assert latest_payload["generated_at"] == "2026-04-02T04:05:06Z"
