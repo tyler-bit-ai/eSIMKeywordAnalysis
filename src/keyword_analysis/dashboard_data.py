@@ -14,7 +14,21 @@ from keyword_analysis.dashboard_help import build_help_payload
 from keyword_analysis.monitoring import compare_snapshots
 
 
-NOISE_MARKERS = ("reddit", "klook", "health insurance")
+NOISE_MARKERS = ("health insurance",)
+FAQ_LEADING_TERMS = ("does ", "is ", "can ", "will ", "how ", "what ", "why ", "when ", "where ")
+CARRIER_MARKERS = (
+    "ee",
+    "vodafone",
+    "o2",
+    "three",
+    "verizon",
+    "att",
+    "at&t",
+    "t mobile",
+    "tmobile",
+    "china mobile",
+)
+COMPATIBILITY_MARKERS = ("support esim", "provide esim", "offer esim", "work in ", "works in ", "compatible with")
 DEFAULT_PUBLISHED_DASHBOARD_DIR = Path("outputs/published_dashboard")
 DEFAULT_PUBLISHED_DASHBOARD_FILENAME = "dashboard_data.json"
 DEFAULT_PUBLISHED_DASHBOARD_MANIFEST_FILENAME = "dashboard_manifest.json"
@@ -98,7 +112,13 @@ def _load_csv(path: Path) -> pd.DataFrame:
 
 def is_noisy_keyword(keyword: str) -> bool:
     normalized = str(keyword).lower()
-    return any(marker in normalized for marker in NOISE_MARKERS)
+    if any(marker in normalized for marker in NOISE_MARKERS):
+        return True
+    if normalized.startswith(FAQ_LEADING_TERMS):
+        return True
+    if any(marker in normalized for marker in COMPATIBILITY_MARKERS):
+        return True
+    return "esim" in normalized and any(marker in normalized for marker in CARRIER_MARKERS)
 
 
 def build_kpi_frame(targets: pd.DataFrame) -> pd.DataFrame:

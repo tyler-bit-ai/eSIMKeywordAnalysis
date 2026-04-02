@@ -16,6 +16,21 @@ SIGNAL_WEIGHTS: dict[str, int] = {
 }
 
 COMMERCIAL_MARKERS = ("best", "cheap", "price", "plan", "prepaid", "unlimited")
+GENERIC_FAQ_LEADING_TERMS = ("does ", "is ", "can ", "will ", "how ", "what ", "why ", "when ", "where ")
+GENERIC_FAQ_MARKERS = ("support esim", "provide esim", "offer esim", "work in ", "works in ", "compatible with")
+CARRIER_MARKERS = (
+    "ee",
+    "vodafone",
+    "o2",
+    "three",
+    "verizon",
+    "att",
+    "at&t",
+    "t mobile",
+    "tmobile",
+    "china mobile",
+)
+GENERIC_FAQ_DEMOTION = 12
 HIGH_PRIORITY_THRESHOLD = 18
 MEDIUM_PRIORITY_THRESHOLD = 10
 CORE_STABLE_SIGNAL_COUNT = 3
@@ -53,6 +68,9 @@ def score_keywords(frame: pd.DataFrame) -> pd.DataFrame:
     frame["commercial_flag"] = frame["canonical_keyword"].apply(
         lambda keyword: int(any(marker in str(keyword) for marker in COMMERCIAL_MARKERS))
     )
+    frame["generic_faq_flag"] = frame["canonical_keyword"].apply(
+        lambda keyword: int(is_generic_faq_keyword(str(keyword)))
+    )
     frame["rank_bonus"] = frame["rank_position"].fillna(10).rsub(11).clip(lower=0)
 
     aggregated = (
@@ -65,6 +83,7 @@ def score_keywords(frame: pd.DataFrame) -> pd.DataFrame:
             weighted_signal_score=("signal_weight", "sum"),
             avg_rank_bonus=("rank_bonus", "mean"),
             commercial_intent=("commercial_flag", "max"),
+            generic_faq=("generic_faq_flag", "max"),
             evidence_signals=("signal_type", lambda values: ",".join(sorted(set(values)))),
             evidence_notes=("notes", lambda values: ",".join(sorted({str(v) for v in values if v}))),
         )
@@ -77,6 +96,7 @@ def score_keywords(frame: pd.DataFrame) -> pd.DataFrame:
         + aggregated["avg_rank_bonus"].fillna(0)
         + aggregated["commercial_intent"] * 3
         + aggregated["observation_count"]
+        - aggregated["generic_faq"] * GENERIC_FAQ_DEMOTION
     ).round(2)
 
     aggregated["keyword_bucket"] = aggregated.apply(classify_keyword_bucket, axis=1)
@@ -96,5 +116,17 @@ def build_confidence_note(row: pd.Series) -> str:
     return (
         f"signals={row['evidence_signals']};"
         f"count={row['observation_count']};"
-        f"commercial={row['commercial_intent']}"
+        f"commercial={row['commercial_intent']};"
+        f"generic_faq={row['generic_faq']}"
     )
+
+
+def is_generic_faq_keyword(keyword: str) -> bool:
+    normalized = str(keyword).lower().strip()
+    if not normalized:
+        return False
+    if normalized.startswith(GENERIC_FAQ_LEADING_TERMS):
+        return True
+    if any(marker in normalized for marker in GENERIC_FAQ_MARKERS):
+        return True
+    return "esim" in normalized and any(marker in normalized for marker in CARRIER_MARKERS)

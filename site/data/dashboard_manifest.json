@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-04-01T02:11:49.393043Z",
-  "default_dataset_id": "snapshot-20260401T021149Z",
+  "generated_at": "2026-04-02T04:20:57.176557Z",
+  "default_dataset_id": "snapshot-20260402T042057Z",
   "datasets": [
     {
-      "dataset_id": "snapshot-20260318T043505Z",
-      "label": "Snapshot 2026-03-18 04:35:05 UTC",
-      "path": "snapshots/snapshot-20260318T043505Z.json",
-      "generated_at": "2026-03-18T04:35:05.321969Z",
+      "dataset_id": "snapshot-20260402T042057Z",
+      "label": "Snapshot 2026-04-02 04:20:57 UTC",
+      "path": "snapshots/snapshot-20260402T042057Z.json",
+      "generated_at": "2026-04-02T04:20:57.176557Z",
       "source_report_dir": "outputs\\reports_korea_focus",
       "dataset_version": "v1",
       "has_previous_snapshot": false,
@@ -16,7 +16,17 @@
       "dataset_id": "snapshot-20260401T021149Z",
       "label": "Snapshot 2026-04-01 02:11:49 UTC",
       "path": "snapshots/snapshot-20260401T021149Z.json",
-      "generated_at": "2026-04-01T02:11:49.393043Z",
+      "generated_at": "2026-04-02T04:20:57.176557Z",
+      "source_report_dir": "outputs\\reports_korea_focus",
+      "dataset_version": "v1",
+      "has_previous_snapshot": false,
+      "has_current_snapshot": false
+    },
+    {
+      "dataset_id": "snapshot-20260318T043505Z",
+      "label": "Snapshot 2026-03-18 04:35:05 UTC",
+      "path": "snapshots/snapshot-20260318T043505Z.json",
+      "generated_at": "2026-04-02T04:20:57.176557Z",
       "source_report_dir": "outputs\\reports_korea_focus",
       "dataset_version": "v1",
       "has_previous_snapshot": false,
