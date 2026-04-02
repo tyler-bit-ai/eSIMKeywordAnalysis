@@ -208,3 +208,90 @@ def test_publish_dashboard_snapshot_bundle_appends_snapshot_and_manifest(tmp_pat
     assert manifest["datasets"][0]["path"] == "snapshots/snapshot-20260402T040506Z.json"
     assert manifest["datasets"][1]["path"] == "snapshots/snapshot-20260401T010203Z.json"
     assert latest_payload["generated_at"] == "2026-04-02T04:05:06Z"
+
+
+def test_publish_dashboard_snapshot_bundle_preserves_existing_snapshot_payloads(tmp_path: Path) -> None:
+    report_dir = tmp_path / "reports_korea_focus"
+    output_dir = tmp_path / "site_data"
+    snapshot_dir = output_dir / "snapshots"
+    report_dir.mkdir(parents=True)
+    snapshot_dir.mkdir(parents=True)
+
+    legacy_payload = {
+        "generated_at": "2026-03-18T04:35:05Z",
+        "source_report_dir": "outputs\\reports_korea_focus",
+        "dataset_version": "v1",
+        "help": {"score_rule": {}, "sections": []},
+        "kpis": {"high_priority_targets": 1, "rising_keywords": 0, "new_keywords": 0, "manual_review_terms": 0, "tracked_targets": 1},
+        "target_table": [{"canonical_keyword": "legacy keyword"}],
+        "modifier_summary": [],
+        "seed_lineage": [],
+        "signal_summary": [],
+        "snapshot_changes": {
+            "new_keywords": [],
+            "disappeared_keywords": [],
+            "rank_changes": [],
+            "bucket_changes": [],
+        },
+        "metadata": {"has_previous_snapshot": False, "has_current_snapshot": False, "notes": []},
+    }
+    (snapshot_dir / "snapshot-20260318T043505Z.json").write_text(json.dumps(legacy_payload), encoding="utf-8")
+    (output_dir / "dashboard_manifest.json").write_text(
+        json.dumps(
+            {
+                "generated_at": "2026-03-18T04:35:05Z",
+                "default_dataset_id": "snapshot-20260318T043505Z",
+                "datasets": [
+                    {
+                        "dataset_id": "snapshot-20260318T043505Z",
+                        "label": "Snapshot 2026-03-18 04:35:05 UTC",
+                        "path": "snapshots/snapshot-20260318T043505Z.json",
+                        "generated_at": "2026-03-18T04:35:05Z",
+                        "source_report_dir": "outputs\\reports_korea_focus",
+                        "dataset_version": "v1",
+                        "has_previous_snapshot": False,
+                        "has_current_snapshot": False,
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    (report_dir / "ranked_keywords.csv").write_text(
+        "\n".join(
+            [
+                "canonical_keyword,priority_score,keyword_bucket",
+                "current keyword,15,core_stable",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    (report_dir / "cluster_summary.csv").write_text(
+        "\n".join(
+            [
+                "keyword_family,keyword_bucket,keyword_count,avg_priority_score",
+                "korea,core_stable,1,15",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    (report_dir / "korea_marketing_targets.csv").write_text(
+        "\n".join(
+            [
+                "canonical_keyword,follow_on_modifier,marketing_priority,priority_score,keyword_bucket,observed_signals,origin_seeds,raw_variants,target_reason",
+                "current keyword,root,high,15,core_stable,autocomplete,korea esim,current keyword,Observed from tests",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    publish_dashboard_snapshot_bundle(
+        report_dir=report_dir,
+        output_dir=output_dir,
+        generated_at=datetime(2026, 4, 2, 4, 5, 6, tzinfo=UTC),
+    )
+
+    preserved_payload = json.loads((snapshot_dir / "snapshot-20260318T043505Z.json").read_text(encoding="utf-8"))
+
+    assert preserved_payload["target_table"][0]["canonical_keyword"] == "legacy keyword"

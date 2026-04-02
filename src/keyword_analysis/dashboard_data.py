@@ -57,6 +57,7 @@ class PublishedDashboardSpec:
     output_filename: str | None = None
     previous_snapshot: Path | None = None
     current_snapshot: Path | None = None
+    existing_payload_path: Path | None = None
 
 
 @dataclass(frozen=True)
@@ -268,12 +269,15 @@ def export_public_dashboard_manifest(
 
     for spec in dataset_specs:
         filename = spec.output_filename or f"{spec.dataset_id}.json"
-        payload = _build_dashboard_payload(
-            report_dir=spec.report_dir,
-            previous_snapshot=spec.previous_snapshot,
-            current_snapshot=spec.current_snapshot,
-            generated_at=timestamp,
-        )
+        if spec.existing_payload_path and spec.existing_payload_path.exists():
+            payload = json.loads(spec.existing_payload_path.read_text(encoding="utf-8"))
+        else:
+            payload = _build_dashboard_payload(
+                report_dir=spec.report_dir,
+                previous_snapshot=spec.previous_snapshot,
+                current_snapshot=spec.current_snapshot,
+                generated_at=timestamp,
+            )
         output_path = output_dir / filename
         _write_dashboard_payload(output_path, payload)
         if spec.dataset_id == default_id:
@@ -419,8 +423,9 @@ def _load_existing_snapshot_specs(output_dir: Path) -> list[PublishedDashboardSp
             PublishedDashboardSpec(
                 dataset_id=str(entry["dataset_id"]),
                 label=str(entry.get("label") or entry["dataset_id"]),
-                report_dir=Path(source_report_dir),
+                report_dir=Path(str(source_report_dir).replace("\\", "/")),
                 output_filename=str(entry.get("path") or f"{entry['dataset_id']}.json"),
+                existing_payload_path=output_dir / str(entry.get("path") or f"{entry['dataset_id']}.json"),
             )
         )
     return dataset_specs
