@@ -269,7 +269,12 @@ def export_public_dashboard_manifest(
 
     for spec in dataset_specs:
         filename = spec.output_filename or f"{spec.dataset_id}.json"
-        if spec.existing_payload_path and spec.existing_payload_path.exists():
+        if spec.existing_payload_path:
+            if not spec.existing_payload_path.exists():
+                raise FileNotFoundError(
+                    f"Published snapshot payload is missing for dataset '{spec.dataset_id}': "
+                    f"{spec.existing_payload_path}"
+                )
             payload = json.loads(spec.existing_payload_path.read_text(encoding="utf-8"))
         else:
             payload = _build_dashboard_payload(
